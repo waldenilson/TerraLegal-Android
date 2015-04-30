@@ -1,9 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Project Base</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="app_name">SICOP</string>
+    <string name="app_desc">Consulta informativa dos processos instruídos no escritório TerraLegal / MA.</string>
+    <string name="app_version">v0.03</string>
+    
     <string name="menu_settings">Settings</string>
+    <string name="ale_retorno_vazio">Não existe informações</string>
     <string name="ale_buscando_dados">Buscando Dados. . .</string>
+    	
+    <string name="er_json">Erro no tratamento dos dados</string>
+    
+    <string name="lb_codigo_fonte">Código Fonte</string>
+    <string name="lb_novidades">Novidades</string>
+    <string name="lb_creditos">Créditos</string>
+    <string name="lb_desc_creditos">Saiba mais sobre o desenvolvedor deste app.</string>
+    <string name="lb_desc_codigo_fonte">App desenvolvimento através de ferramentas livres.</string>
+    <string name="lb_desc_novidades">Acompanhe o desenvolvimento deste e de outros apps.</string>
+    <string name="lb_info">Informações</string>
+    <string name="lb_desc_info">Saiba como funciona o app.</string>
+    
+    <string name="txt_codigo_fonte">Este aplicativo foi idealizado, desenvolvido e disponibilizado por um aluno da faculdade Uniasselvi.\n\n Aluno: Waldenilson Carneiro\n\n Email: waldenilsonnovaes@gmail.com\n\n Pólo de ensino a distância Athenas / São Luis - Maranhão.\n\n---\n\nO código fonte do aplicativo pode ser acessado no repositório online do github no link abaixo.\n\nhttps://github.com/waldenilson/aluno-uniasselvi\n\n---\n\nO git é um programa de controle de versões.\n\nO github é um site para gerenciar os projetos que usam o git.</string>
+    <string name="txt_info">O app foi desenvolvido com o intuito de reunir na palma da mão as funcionalidades que podem ser úteis para o aluno Uniasselvi.\n\nTodas as funções são baseadas nas informações do portal ava da universidade e envolvimento com alunos e tutores da instituição.\n\nA versão do app é baseada nos commits do git. Em torno de 10 commits gera uma pequena release, em torno de 5 release gera uma atualização no app.\n\nVersão atual: 0.60\n\n---\n\nFerramentas utilizadas no desenvolvimento:\n\nEclipse IDE com SDK Android\n\nControle de projeto XP (métodos ágeis) - Trello\n\nControle de versões - GIT\n\nSistema Operacional - Linux</string>
+    <string name="txt_creditos">Criador: Waldenilson Carneiro\n\nDesenvolve em Python/Django, Java/Android\n\nOutras principais tecnologias que utiliza:\n\nMySQL/PostgreSQL\n\neXtreme Programming - XP\n\nGIT\n\n---\n\nProgramador - Ministério Desenvolvimento Agrário\n\nColaborador no portal do software público\n\nFundador da Casa do Software Livre\nNão pague, contribua!\n\nhttp://www.acasadosoftwarelivre.com.br\n\ncontato@acasadosoftwarelivre.com.br\n\nSão Luis - Maranhão</string>
+    <string name="txt_novidades">Novas versões serão desenvolvidas de acordo com a necessidade dos alunos da Uniasselvi.\n\nEntre em contato para informar sugestôes, críticas ou propostas de parcerias, trabalhos etc.\n\nEmail: contato@acasadosoftwarelivre.com.br\n\nEmail Pessoal: waldenilsonnovaes@gmail.com\n\nWebSite: http://www.acasadosoftwarelivre.com.br</string>
+    
+    <string name="lb_voltar">VOLTAR</string>
+    <string name="lb_sair">SAIR</string>
     
 </resources>
