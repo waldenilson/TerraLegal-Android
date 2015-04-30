@@ -12,6 +12,10 @@
     	
     <string name="er_json">Erro no tratamento dos dados</string>
     
+    <string name="menu_processos">Processos</string>
+    <string name="menu_desc_processos">Consulte a localização e situação processual.</string>
+    
+    
     <string name="lb_codigo_fonte">Código Fonte</string>
     <string name="lb_novidades">Novidades</string>
     <string name="lb_creditos">Créditos</string>

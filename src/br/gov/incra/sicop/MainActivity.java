@@ -3,9 +3,8 @@ package br.gov.incra.sicop;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.csl.alunouniasselvi.R;
-import br.com.csl.alunouniasselvi.list.ListViewImageAdapter;
 import br.gov.incra.sicop.abstractactivity.IActivity;
+import br.gov.incra.sicop.list.ListViewImageAdapter;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -33,8 +32,8 @@ public class MainActivity extends Activity implements IActivity, OnItemClickList
 		List<String> desc = new ArrayList<String>();
 		List<Drawable> img = new ArrayList<Drawable>();
 		
-		lista.add( getString(R.string.lb_simulador_notas) ); desc.add( getString( R.string.lb_desc_simulador_notas) );//simulador
-		img.add( getResources().getDrawable(R.drawable.calculator) );
+		lista.add( getString(R.string.menu_processos) ); desc.add( getString( R.string.menu_desc_processos) );//processos
+		img.add( getResources().getDrawable(R.drawable.about) );
 
 		ListViewImageAdapter lv = new ListViewImageAdapter(this, lista, desc, img);
 		lvmenu.setAdapter(lv);
@@ -44,7 +43,7 @@ public class MainActivity extends Activity implements IActivity, OnItemClickList
 	}
 
 	private void init(){
-
+		lvmenu = (ListView) findViewById(R.id.lv_menu);
 	}
 
 	@Override
