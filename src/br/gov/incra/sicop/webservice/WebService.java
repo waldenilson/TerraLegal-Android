@@ -1,4 +1,4 @@
-package br.com.csl.base.webservice;
+package br.gov.incra.sicop.webservice;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

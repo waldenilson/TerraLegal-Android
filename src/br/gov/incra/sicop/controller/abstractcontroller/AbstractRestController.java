@@ -1,5 +1,5 @@
-package br.com.csl.base.controller.abstractcontroller;
-import br.com.csl.base.webservice.WebService;
+package br.gov.incra.sicop.controller.abstractcontroller;
+import br.gov.incra.sicop.webservice.WebService;
 
 public abstract class AbstractRestController {
 	

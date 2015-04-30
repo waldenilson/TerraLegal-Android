@@ -1,5 +1,5 @@
 /** Automatically generated file. DO NOT MODIFY */
-package br.com.csl.alunouniasselvi;
+package br.gov.incra.sicop;
 
 public final class BuildConfig {
     public final static boolean DEBUG = true;

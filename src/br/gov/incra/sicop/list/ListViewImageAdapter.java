@@ -1,34 +1,31 @@
-package br.com.csl.base.list;
+package br.gov.incra.sicop.list;
 
 import java.util.List;
 
-import br.com.csl.alunouniasselvi.R;
+import br.gov.incra.sicop.R;
 
 import android.app.Activity;
-import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-public class ListViewDetailColorAdapter extends BaseAdapter
+public class ListViewImageAdapter extends BaseAdapter
 {
 	Activity context;
 	List<String> title;
 	List<String> desc;
-	List<String> value;
-	List<Integer> color;
-	
+	List<Drawable> image;
 
-	public ListViewDetailColorAdapter(Activity context, List<String> title, List<String> desc, List<String> value, List<Integer> color) {
+	public ListViewImageAdapter(Activity context, List<String> title, List<String> desc, List<Drawable> image) {
 		super();
 		this.context = context;
 		this.title = title;
 		this.desc = desc;
-		this.value = value;
-		this.color = color;
+		this.image = image;
 	}
 
 	public int getCount() {
@@ -47,8 +44,8 @@ public class ListViewDetailColorAdapter extends BaseAdapter
 	}
 
 	private class ViewHolder {
-        TextView txtViewTitle, txtViewValue, txtViewDesc;
-        LinearLayout llView;
+        TextView txtViewTitle, txtViewDesc;
+        ImageView img;
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent)
@@ -59,12 +56,11 @@ public class ListViewDetailColorAdapter extends BaseAdapter
 
 		if (convertView == null)
 		{
-			convertView = inflater.inflate(R.layout.listdetailcolor, null);
+			convertView = inflater.inflate(R.layout.listimage, null);
 			holder = new ViewHolder();
-			holder.txtViewTitle = (TextView) convertView.findViewById(R.id.tv_listdetailcolor_title);
-			holder.txtViewDesc = (TextView) convertView.findViewById(R.id.tv_listdetailcolor_desc);
-			holder.txtViewValue = (TextView) convertView.findViewById(R.id.tv_listdetailcolor_value);
-			holder.llView = (LinearLayout) convertView.findViewById(R.id.ll_listdetailcolor);
+			holder.txtViewTitle = (TextView) convertView.findViewById(R.id.tv_listimage);
+			holder.txtViewDesc = (TextView) convertView.findViewById(R.id.tv_listimagedesc);
+			holder.img = (ImageView) convertView.findViewById(R.id.iv_listimage);
 			convertView.setTag(holder);
 		}
 		else
@@ -73,8 +69,8 @@ public class ListViewDetailColorAdapter extends BaseAdapter
 		}
 		holder.txtViewTitle.setText(title.get(position).toString());
 		holder.txtViewDesc.setText(desc.get(position).toString());
-		holder.txtViewValue.setText(value.get(position).toString());
-		holder.llView.setBackgroundColor( color.get(position) );
+		holder.img.setImageDrawable(image.get(position));
+		
 	return convertView;
 	}
 

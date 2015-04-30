@@ -1,31 +1,31 @@
-package br.com.csl.base.list;
+package br.gov.incra.sicop.list;
 
 import java.util.List;
 
-import br.com.csl.alunouniasselvi.R;
+import br.gov.incra.sicop.R;
 
 import android.app.Activity;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class ListViewImageAdapter extends BaseAdapter
+public class ListViewColorAdapter extends BaseAdapter
 {
 	Activity context;
 	List<String> title;
 	List<String> desc;
-	List<Drawable> image;
+	List<Integer> color;
+	
 
-	public ListViewImageAdapter(Activity context, List<String> title, List<String> desc, List<Drawable> image) {
+	public ListViewColorAdapter(Activity context, List<String> title, List<String> desc, List<Integer> color) {
 		super();
 		this.context = context;
 		this.title = title;
 		this.desc = desc;
-		this.image = image;
+		this.color = color;
 	}
 
 	public int getCount() {
@@ -45,7 +45,7 @@ public class ListViewImageAdapter extends BaseAdapter
 
 	private class ViewHolder {
         TextView txtViewTitle, txtViewDesc;
-        ImageView img;
+        LinearLayout llView;
 	}
 
 	public View getView(int position, View convertView, ViewGroup parent)
@@ -56,11 +56,11 @@ public class ListViewImageAdapter extends BaseAdapter
 
 		if (convertView == null)
 		{
-			convertView = inflater.inflate(R.layout.listimage, null);
+			convertView = inflater.inflate(R.layout.listcolor, null);
 			holder = new ViewHolder();
-			holder.txtViewTitle = (TextView) convertView.findViewById(R.id.tv_listimage);
-			holder.txtViewDesc = (TextView) convertView.findViewById(R.id.tv_listimagedesc);
-			holder.img = (ImageView) convertView.findViewById(R.id.iv_listimage);
+			holder.txtViewTitle = (TextView) convertView.findViewById(R.id.tv_listcolor_title);
+			holder.txtViewDesc = (TextView) convertView.findViewById(R.id.tv_listcolor_desc);
+			holder.llView = (LinearLayout) convertView.findViewById(R.id.ll_listcolor);
 			convertView.setTag(holder);
 		}
 		else
@@ -69,8 +69,7 @@ public class ListViewImageAdapter extends BaseAdapter
 		}
 		holder.txtViewTitle.setText(title.get(position).toString());
 		holder.txtViewDesc.setText(desc.get(position).toString());
-		holder.img.setImageDrawable(image.get(position));
-		
+		holder.llView.setBackgroundColor( color.get(position) );
 	return convertView;
 	}
 

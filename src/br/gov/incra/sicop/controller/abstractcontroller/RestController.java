@@ -1,4 +1,4 @@
-package br.com.csl.base.controller.abstractcontroller;
+package br.gov.incra.sicop.controller.abstractcontroller;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -7,7 +7,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import br.com.csl.base.controller.GlobalController;
+import br.gov.incra.sicop.controller.GlobalController;
 
 @SuppressWarnings("serial")
 public class RestController extends AbstractRestController implements Serializable {

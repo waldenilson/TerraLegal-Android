@@ -1,7 +1,6 @@
-package br.com.csl.base;
+package br.gov.incra.sicop;
 
-import br.com.csl.alunouniasselvi.R;
-import br.com.csl.base.abstractactivity.IActivity;
+import br.gov.incra.sicop.abstractactivity.IActivity;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.ProgressDialog;

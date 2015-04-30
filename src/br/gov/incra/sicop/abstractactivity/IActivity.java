@@ -1,4 +1,4 @@
-package br.com.csl.base.abstractactivity;
+package br.gov.incra.sicop.abstractactivity;
 
 import android.view.View;
 

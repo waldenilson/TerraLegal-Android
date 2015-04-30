@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package br.com.csl.alunouniasselvi;
+package br.gov.incra.sicop;
 
 public final class R {
     public static final class attr {
