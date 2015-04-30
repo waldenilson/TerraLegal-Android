@@ -68,4 +68,8 @@ public class MainActivity extends Activity implements IActivity {
 		Intent data = new Intent(this, LoginActivity.class);
 		startActivityForResult(data,1);				
 	}
+	
+	public void bt_sair(View v){
+		finish();
+	}
 }

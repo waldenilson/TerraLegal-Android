@@ -122,7 +122,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/aluno_uniasselvi_top"
-            android:text="SAIR"
+            android:text="@string/lb_sair"
             android:onClick="bt_sair" />
         
     </LinearLayout>
