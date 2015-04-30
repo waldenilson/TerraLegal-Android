@@ -35,6 +35,12 @@ public class MainActivity extends Activity implements IActivity, OnItemClickList
 		lista.add( getString(R.string.menu_processos) ); desc.add( getString( R.string.menu_desc_processos) );//processos
 		img.add( getResources().getDrawable(R.drawable.about) );
 
+		lista.add( getString(R.string.menu_pecas) ); desc.add( getString( R.string.menu_desc_pecas) );//pecas
+		img.add( getResources().getDrawable(R.drawable.about) );
+
+		lista.add( getString(R.string.menu_livro) ); desc.add( getString( R.string.menu_desc_livro) );//livro fundiario
+		img.add( getResources().getDrawable(R.drawable.about) );
+
 		ListViewImageAdapter lv = new ListViewImageAdapter(this, lista, desc, img);
 		lvmenu.setAdapter(lv);
 		lvmenu.setTextFilterEnabled(true);

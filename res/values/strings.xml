@@ -14,6 +14,12 @@
     
     <string name="menu_processos">Processos</string>
     <string name="menu_desc_processos">Consulte a localização e situação processual.</string>
+
+    <string name="menu_pecas">Peças Técnicas</string>
+    <string name="menu_desc_pecas">Informações sobre as peças técnicas registradas no escritório.</string>
+    
+    <string name="menu_livro">Livro Fundiário</string>
+    <string name="menu_desc_livro">Títulos emitidos da Regularização Fundiária.</string>
     
     
     <string name="lb_codigo_fonte">Código Fonte</string>
