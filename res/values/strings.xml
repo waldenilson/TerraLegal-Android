@@ -24,6 +24,8 @@
     <string name="menu_info">Informações</string>
     <string name="menu_desc_info">Informações sobre o app.</string>
     
+    <string name="menu_leis">Legislação</string>
+    <string name="menu_desc_leis">Legislação do Terra Legal.</string>
     
     <string name="lb_codigo_fonte">Código Fonte</string>
     <string name="lb_novidades">Novidades</string>
