@@ -21,6 +21,9 @@
     <string name="menu_livro">Livro Fundiário</string>
     <string name="menu_desc_livro">Títulos emitidos da Regularização Fundiária.</string>
     
+    <string name="menu_info">Informações</string>
+    <string name="menu_desc_info">Informações sobre o app.</string>
+    
     
     <string name="lb_codigo_fonte">Código Fonte</string>
     <string name="lb_novidades">Novidades</string>

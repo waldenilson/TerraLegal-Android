@@ -41,6 +41,9 @@ public class MainActivity extends Activity implements IActivity, OnItemClickList
 		lista.add( getString(R.string.menu_livro) ); desc.add( getString( R.string.menu_desc_livro) );//livro fundiario
 		img.add( getResources().getDrawable(R.drawable.livro) );
 
+		lista.add( getString(R.string.menu_info) ); desc.add( getString( R.string.menu_desc_info) );//informacoes
+		img.add( getResources().getDrawable(R.drawable.livro) );
+
 		ListViewImageAdapter lv = new ListViewImageAdapter(this, lista, desc, img);
 		lvmenu.setAdapter(lv);
 		lvmenu.setTextFilterEnabled(true);
@@ -66,10 +69,6 @@ public class MainActivity extends Activity implements IActivity, OnItemClickList
 	}
 
 
-	public void click_bt_bar_info(View v) {
-		// TODO Auto-generated method stub
-		
-	}
 	@Override
 	public void abrirDialogProcessamento() {
 		// TODO Auto-generated method stub
