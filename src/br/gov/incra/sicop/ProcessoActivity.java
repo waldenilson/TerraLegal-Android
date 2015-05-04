@@ -39,7 +39,7 @@ public class ProcessoActivity extends Activity implements IActivity {
 		SQLiteDatabase sql = ((GlobalController) getApplication()).getDatabase();
 		if ( sql.isOpen() )
 		{
-			Cursor resultSet = sql.rawQuery("SELECT * FROM processo WHERE id = "+ ((GlobalController)getApplication()).getIdPesquisa() +"% ", null);
+			Cursor resultSet = sql.rawQuery("SELECT * FROM processo WHERE id = "+ ((GlobalController)getApplication()).getIdPesquisa() +"", null);
 			resultSet.moveToFirst();
 
 			tipo.setText( tipo.getText().toString()+" "+resultSet.getString(6) );
