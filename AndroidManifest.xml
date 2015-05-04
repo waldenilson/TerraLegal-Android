@@ -10,8 +10,6 @@
     
      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
      <uses-permission android:name="android.permission.WAKE_LOCK"/>
-     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
         android:allowBackup="true"
@@ -37,7 +35,25 @@
             android:configChanges="orientation"
             android:label="@string/app_name" >
         </activity>
-
-        </application>
+        
+        <activity
+            android:name="br.gov.incra.sicop.ConsultaProcessoActivity"
+            android:configChanges="orientation"
+            android:label="@string/app_name" >
+        </activity>
+        
+        <activity
+            android:name="br.gov.incra.sicop.ProcessoActivity"
+            android:configChanges="orientation"
+            android:label="@string/app_name" >
+        </activity>
+        
+        <activity
+            android:name="br.gov.incra.sicop.ProcessosActivity"
+            android:configChanges="orientation"
+            android:label="@string/app_name" >
+        </activity>
+        
+    </application>
 
 </manifest>
