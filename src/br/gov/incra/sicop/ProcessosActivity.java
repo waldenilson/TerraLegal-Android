@@ -39,7 +39,7 @@ public class ProcessosActivity extends Activity implements IActivity, OnItemClic
 		SQLiteDatabase sql = ((GlobalController) getApplication()).getDatabase();
 		if ( sql.isOpen() )
 		{
-			Cursor resultSet = sql.rawQuery("SELECT * FROM processo WHERE nome ILIKE '%"+ ((GlobalController)getApplication()).getNomePesquisa() +"%' ", null);
+			Cursor resultSet = sql.rawQuery("SELECT * FROM processo WHERE nome LIKE '%"+ ((GlobalController)getApplication()).getNomePesquisa() +"%' ", null);
 			resultSet.moveToFirst();
 			
 			while(resultSet.isAfterLast() == false)
