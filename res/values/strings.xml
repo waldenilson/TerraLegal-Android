@@ -3,7 +3,7 @@
 
     <string name="app_name">SICOP</string>
     <string name="app_desc">Consulta informativa dos processos instruídos no escritório TerraLegal / MA.</string>
-    <string name="app_description">Sistema de controle de processos.</string>
+    <string name="app_description">App para consulta processual em campo.</string>
     <string name="app_version">v0.03</string>
     
     <string name="menu_settings">Settings</string>
@@ -43,5 +43,6 @@
     
     <string name="lb_voltar">VOLTAR</string>
     <string name="lb_sair">SAIR</string>
+    <string name="lb_pesquisar">PESQUISAR</string>
     
 </resources>

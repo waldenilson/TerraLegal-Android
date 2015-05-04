@@ -18,7 +18,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
-            android:onClick="voltar"
+            android:onClick="click_bt_bar_back"
             android:gravity="center_horizontal|center_vertical" >
 	        
             <ImageView
@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-            android:text="Possibilidades para você ser aprovado."
+            android:text="DADOS DO PROCESSO"
             android:textSize="13sp" />
         
     </LinearLayout>

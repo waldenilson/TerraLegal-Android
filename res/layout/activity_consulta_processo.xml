@@ -18,7 +18,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
-            android:onClick="voltar"
+            android:onClick="click_bt_bar_back"
             android:gravity="center_horizontal|center_vertical" >
 	        
             <ImageView
@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-            android:text="Possibilidades para você ser aprovado."
+            android:text="CONSULTAR PROCESSO"
             android:textSize="13sp" />
         
     </LinearLayout>
@@ -102,6 +102,16 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:orientation="vertical" >
+
+                <EditText
+                    android:id="@+id/et_nome"
+                    android:hint="Nome do Requerente"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10" >
+
+                </EditText>
+
             </LinearLayout>
         </ScrollView>
 
@@ -112,6 +122,15 @@
         android:layout_height="50dp"
         android:background="#1A8208"
         android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#1A8208"
+            android:textColor="#fff"
+            android:text="@string/lb_pesquisar"
+            android:onClick="bt_pesquisar" />
         
     </LinearLayout>
     

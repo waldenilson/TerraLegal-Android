@@ -116,21 +116,25 @@ public class MainActivity extends Activity implements IActivity, OnItemClickList
 		// TODO Auto-generated method stub
 		if(arg2 == 0)
 		{
-			SQLiteDatabase sql = ((GlobalController) getApplication()).getDatabase();
-			if ( sql.isOpen() )
-			{
-				Toast.makeText(this, "abriu arquivo", Toast.LENGTH_LONG).show();
-				Cursor resultSet = sql.rawQuery("SELECT * FROM processo WHERE nome LIKE '%SNY%' ", null);
-				resultSet.moveToFirst();
-				Toast.makeText(this, "Total registros: "+resultSet.getCount(), Toast.LENGTH_LONG).show();
-				
-				while(resultSet.isAfterLast() == false){
-					Toast.makeText(this, "Nome: "+resultSet.getString(2), Toast.LENGTH_LONG).show();
-					resultSet.moveToNext();
-				}
-			}
-			else
-				Toast.makeText(this, "nao abriu arquivo", Toast.LENGTH_LONG).show();
+			
+			Intent data = new Intent(this, ConsultaProcessoActivity.class);
+			startActivityForResult(data,1);				
+			
+//			SQLiteDatabase sql = ((GlobalController) getApplication()).getDatabase();
+//			if ( sql.isOpen() )
+//			{
+//				Toast.makeText(this, "abriu arquivo", Toast.LENGTH_LONG).show();
+//				Cursor resultSet = sql.rawQuery("SELECT * FROM processo WHERE nome LIKE '%SNY%' ", null);
+//				resultSet.moveToFirst();
+//				Toast.makeText(this, "Total registros: "+resultSet.getCount(), Toast.LENGTH_LONG).show();
+//				
+//				while(resultSet.isAfterLast() == false){
+//					Toast.makeText(this, "Nome: "+resultSet.getString(2), Toast.LENGTH_LONG).show();
+//					resultSet.moveToNext();
+//				}
+//			}
+//			else
+//				Toast.makeText(this, "nao abriu arquivo", Toast.LENGTH_LONG).show();
 		}
 	}
 }

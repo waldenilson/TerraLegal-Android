@@ -26,6 +26,8 @@ public class GlobalController extends Application {
 	private String config = "[]";
 	private SQLiteDatabase database;
 		
+	private String nomePesquisa;
+	
 	public GlobalController() {
 		criarConfig();
 	}
@@ -161,6 +163,14 @@ public class GlobalController extends Application {
 
 	public SQLiteDatabase getDatabase() {
 		return openOrCreateDatabase( FILES + "sicopsqlite.db", MODE_PRIVATE, null);
+	}
+
+	public String getNomePesquisa() {
+		return nomePesquisa;
+	}
+
+	public void setNomePesquisa(String nomePesquisa) {
+		this.nomePesquisa = nomePesquisa;
 	}
 
 }
