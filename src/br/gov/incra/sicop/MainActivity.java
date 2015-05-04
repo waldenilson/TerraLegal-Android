@@ -4,16 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.gov.incra.sicop.abstractactivity.IActivity;
+import br.gov.incra.sicop.controller.GlobalController;
 import br.gov.incra.sicop.list.ListViewImageAdapter;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Drawable;
 import android.support.v4.view.ViewPager.LayoutParams;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
@@ -21,7 +25,7 @@ public class MainActivity extends Activity implements IActivity, OnItemClickList
 
     private ProgressDialog pd;
     private ListView lvmenu;
-
+    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -110,6 +114,23 @@ public class MainActivity extends Activity implements IActivity, OnItemClickList
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		// TODO Auto-generated method stub
-		
+		if(arg2 == 0)
+		{
+			SQLiteDatabase sql = ((GlobalController) getApplication()).getDatabase();
+			if ( sql.isOpen() )
+			{
+				Toast.makeText(this, "abriu arquivo", Toast.LENGTH_LONG).show();
+				Cursor resultSet = sql.rawQuery("SELECT * FROM processo WHERE nome LIKE '%SNY%' ", null);
+				resultSet.moveToFirst();
+				Toast.makeText(this, "Total registros: "+resultSet.getCount(), Toast.LENGTH_LONG).show();
+				
+				while(resultSet.isAfterLast() == false){
+					Toast.makeText(this, "Nome: "+resultSet.getString(2), Toast.LENGTH_LONG).show();
+					resultSet.moveToNext();
+				}
+			}
+			else
+				Toast.makeText(this, "nao abriu arquivo", Toast.LENGTH_LONG).show();
+		}
 	}
 }

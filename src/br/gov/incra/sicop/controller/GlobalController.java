@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Application;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Environment;
@@ -21,14 +22,15 @@ import android.os.Environment;
 public class GlobalController extends Application {
 	
 	private String keyAccess = "chave";
-	private final String FILES = Environment.getExternalStorageDirectory()+"/project/files/control/";
+	private final String FILES = Environment.getExternalStorageDirectory()+"/sicop/files/control/";
 	private String config = "[]";
+	private SQLiteDatabase database;
 		
 	public GlobalController() {
 		criarConfig();
 	}
 
-	public void updateSeminario(){
+	public void updateConfig(){
 		criarArquivo("config", this.config, "txt");
 	}
 	
@@ -155,6 +157,10 @@ public class GlobalController extends Application {
 
 	public void setConfig(String config) {
 		this.config = config;
-	}	
-	
+	}
+
+	public SQLiteDatabase getDatabase() {
+		return openOrCreateDatabase( FILES + "sicopsqlite.db", MODE_PRIVATE, null);
+	}
+
 }
