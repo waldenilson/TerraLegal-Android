@@ -17,13 +17,17 @@ import android.support.v4.view.ViewPager.LayoutParams;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
-public class ProcessoActivity extends Activity implements IActivity{
+public class ProcessoActivity extends Activity implements IActivity {
 
     private ProgressDialog pd;
+    
+    private TextView tipo, nome, localizacao, numero, cadastro_pessoa, subnome,endereco,contato,gleba,municipio;
+    
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +36,45 @@ public class ProcessoActivity extends Activity implements IActivity{
 		getWindow().setLayout(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
 		init();
 
+		SQLiteDatabase sql = ((GlobalController) getApplication()).getDatabase();
+		if ( sql.isOpen() )
+		{
+			Cursor resultSet = sql.rawQuery("SELECT * FROM processo WHERE id = "+ ((GlobalController)getApplication()).getIdPesquisa() +"% ", null);
+			resultSet.moveToFirst();
+
+			tipo.setText( tipo.getText().toString()+" "+resultSet.getString(6) );
+			numero.setText( numero.getText().toString()+" "+resultSet.getString(1) );
+			nome.setText( nome.getText().toString()+" "+resultSet.getString(3) );
+			cadastro_pessoa.setText( cadastro_pessoa.getText().toString()+" "+resultSet.getString(2) );
+			localizacao.setText( localizacao.getText().toString()+" "+resultSet.getString(5) );
+			
+			gleba.setText( gleba.getText().toString()+" "+resultSet.getString(8) );
+			endereco.setText( endereco.getText().toString()+" "+resultSet.getString(10) );
+			contato.setText( contato.getText().toString()+" "+resultSet.getString(11) );
+			municipio.setText( municipio.getText().toString()+" "+resultSet.getString(9) );
+			subnome.setText( subnome.getText().toString()+" "+resultSet.getString(4) );
+			
+		}
+		else
+		{
+			Toast.makeText(this, "Não acessou a base de dados", Toast.LENGTH_LONG).show();
+			finish();
+		}
+
 	}
 
-	private void init(){
+	private void init()
+	{
+		tipo = (TextView) findViewById(R.id.tv_tipo);
+		nome = (TextView) findViewById(R.id.tv_nome);
+		localizacao = (TextView) findViewById(R.id.tv_localizacao);
+		numero = (TextView) findViewById(R.id.tv_numero);
+		cadastro_pessoa = (TextView) findViewById(R.id.tv_cadastro_pessoa);
+		gleba = (TextView) findViewById(R.id.tv_gleba);
+		municipio = (TextView) findViewById(R.id.tv_municipio);
+		endereco = (TextView) findViewById(R.id.tv_endereco);
+		contato = (TextView) findViewById(R.id.tv_contato);
+		subnome = (TextView) findViewById(R.id.tv_subnome);
 	}
 
 	@Override

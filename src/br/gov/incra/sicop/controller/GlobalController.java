@@ -27,6 +27,7 @@ public class GlobalController extends Application {
 	private SQLiteDatabase database;
 		
 	private String nomePesquisa;
+	private Integer idPesquisa;
 	
 	public GlobalController() {
 		criarConfig();
@@ -171,6 +172,14 @@ public class GlobalController extends Application {
 
 	public void setNomePesquisa(String nomePesquisa) {
 		this.nomePesquisa = nomePesquisa;
+	}
+
+	public Integer getIdPesquisa() {
+		return idPesquisa;
+	}
+
+	public void setIdPesquisa(Integer idPesquisa) {
+		this.idPesquisa = idPesquisa;
 	}
 
 }

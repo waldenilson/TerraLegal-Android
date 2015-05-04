@@ -26,7 +26,9 @@ public class ProcessosActivity extends Activity implements IActivity, OnItemClic
 
     private ProgressDialog pd;
     private ListView lv_processos;
-    
+	private List<Integer> ids = new ArrayList<Integer>();
+	private List<String> nomes = new ArrayList<String>();
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -34,8 +36,6 @@ public class ProcessosActivity extends Activity implements IActivity, OnItemClic
 		getWindow().setLayout(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
 		init();
 		
-		List<String> nomes = new ArrayList<String>();
-
 		SQLiteDatabase sql = ((GlobalController) getApplication()).getDatabase();
 		if ( sql.isOpen() )
 		{
@@ -44,6 +44,7 @@ public class ProcessosActivity extends Activity implements IActivity, OnItemClic
 			
 			while(resultSet.isAfterLast() == false)
 			{
+				ids.add( resultSet.getInt( 0 ) );
 				nomes.add( resultSet.getString(3) );
 				resultSet.moveToNext();
 			}
@@ -108,7 +109,9 @@ public class ProcessosActivity extends Activity implements IActivity, OnItemClic
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		// TODO Auto-generated method stub
-		
+		((GlobalController)getApplication()).setIdPesquisa( ids.get(arg2) );
+		Intent data = new Intent(this, ProcessoActivity.class);
+		startActivityForResult(data,1);						
 	}
 
 }
