@@ -44,7 +44,7 @@ public class ProcessosActivity extends Activity implements IActivity, OnItemClic
 			
 			while(resultSet.isAfterLast() == false)
 			{
-				nomes.add( resultSet.getString(2) );
+				nomes.add( resultSet.getString(3) );
 				resultSet.moveToNext();
 			}
 		}

@@ -106,15 +106,5 @@
 		        </ListView>
 	        
             </LinearLayout>
-
-
-    
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#1A8208"
-        android:orientation="horizontal" >
-        
-    </LinearLayout>
     
 </LinearLayout>
