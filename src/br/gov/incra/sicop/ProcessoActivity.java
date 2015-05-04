@@ -52,7 +52,13 @@ public class ProcessoActivity extends Activity implements IActivity {
 			endereco.setText( endereco.getText().toString()+" "+resultSet.getString(10) );
 			contato.setText( contato.getText().toString()+" "+resultSet.getString(11) );
 			municipio.setText( municipio.getText().toString()+" "+resultSet.getString(9) );
-			subnome.setText( subnome.getText().toString()+" "+resultSet.getString(4) );
+			if(resultSet.getString(6).equals("PROCESSO RURAL"))
+				subnome.setText( "Cônjuge: "+resultSet.getString(4) );
+			else if(resultSet.getString(6).equals("REGULARIZACAO URBANA"))
+				subnome.setText( "Povoado: "+resultSet.getString(4) );
+			else
+				subnome.setText( "Interessado: "+resultSet.getString(4) );
+			
 			
 		}
 		else
