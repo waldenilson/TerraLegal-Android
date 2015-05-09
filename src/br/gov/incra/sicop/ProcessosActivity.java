@@ -5,7 +5,9 @@ import java.util.List;
 
 import br.gov.incra.sicop.abstractactivity.IActivity;
 import br.gov.incra.sicop.controller.GlobalController;
+import br.gov.incra.sicop.list.ListViewColorAdapter;
 import br.gov.incra.sicop.list.ListViewConfigAdapter;
+import br.gov.incra.sicop.list.ListViewDetailColorAdapter;
 import br.gov.incra.sicop.list.ListViewImageAdapter;
 import android.os.Bundle;
 import android.app.Activity;
@@ -13,6 +15,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.v4.view.ViewPager.LayoutParams;
 import android.view.Menu;
@@ -26,9 +29,10 @@ public class ProcessosActivity extends Activity implements IActivity, OnItemClic
 
     private ProgressDialog pd;
     private ListView lv_processos;
-	private List<Integer> ids = new ArrayList<Integer>();
-	private List<String> nomes = new ArrayList<String>();
-
+	private List<Integer> ids,cor = new ArrayList<Integer>();
+	private List<String> nomes,localizacao,gleba = new ArrayList<String>();
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -39,13 +43,26 @@ public class ProcessosActivity extends Activity implements IActivity, OnItemClic
 		SQLiteDatabase sql = ((GlobalController) getApplication()).getDatabase();
 		if ( sql.isOpen() )
 		{
-			Cursor resultSet = sql.rawQuery("SELECT * FROM processo WHERE nome LIKE '%"+ ((GlobalController)getApplication()).getNomePesquisa() +"%' ", null);
+			
+			
+			//String s = "SELECT * FROM processo WHERE nome LIKE '%"+ ((GlobalController)getApplication()).getNomePesquisa() +"%' ";
+			String s = "SELECT * FROM processo WHERE nome LIKE '%?%' AND cadastro_pessoa LIKE '%?%'";
+			
+			Cursor resultSet = sql.rawQuery(s, new String[] {((GlobalController)getApplication()).getNomePesquisa(), ((GlobalController)getApplication()).getCadastroPesquisa()});
 			resultSet.moveToFirst();
 			
 			while(resultSet.isAfterLast() == false)
 			{
 				ids.add( resultSet.getInt( 0 ) );
 				nomes.add( resultSet.getString(3) );
+				localizacao.add( resultSet.getString(5) );
+				gleba.add( resultSet.getString(9)+" / "+resultSet.getString(8) );
+				if(resultSet.getString(6).equals("PROCESSO RURAL"))
+					cor.add( Color.rgb(110, 255, 110) );
+				else if(resultSet.getString(6).equals("CLAUSULAS RESOLUTIVAS"))
+					cor.add( Color.rgb(153,255,255) );
+				else
+					cor.add( Color.rgb(255,178,102) );
 				resultSet.moveToNext();
 			}
 		}
@@ -55,8 +72,9 @@ public class ProcessosActivity extends Activity implements IActivity, OnItemClic
 			finish();
 		}
 
-		ListViewConfigAdapter lv = new ListViewConfigAdapter(this, nomes);
-		lv_processos.setAdapter(lv);
+//		ListViewConfigAdapter lv = new ListViewConfigAdapter(this, nomes);
+		ListViewDetailColorAdapter lvdc = new ListViewDetailColorAdapter(this, nomes, localizacao, gleba, cor);
+		lv_processos.setAdapter(lvdc);
 		lv_processos.setTextFilterEnabled(true);
 		lv_processos.setOnItemClickListener(this);	
 

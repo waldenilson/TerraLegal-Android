@@ -26,7 +26,7 @@ public class ProcessoActivity extends Activity implements IActivity {
 
     private ProgressDialog pd;
     
-    private TextView tipo, nome, localizacao, numero, cadastro_pessoa, subnome,endereco,contato,gleba,municipio;
+    private TextView tipo, nome, localizacao, numero, cadastro_pessoa, subnome,endereco,contato,gleba,municipio, classificacao;
     
     
 	@Override
@@ -59,6 +59,8 @@ public class ProcessoActivity extends Activity implements IActivity {
 			else
 				subnome.setText( "Interessado: "+resultSet.getString(4) );
 			
+			if(!resultSet.getString(7).equals("ANEXO"))
+				classificacao.setEnabled(false);
 			
 		}
 		else
@@ -81,6 +83,7 @@ public class ProcessoActivity extends Activity implements IActivity {
 		endereco = (TextView) findViewById(R.id.tv_endereco);
 		contato = (TextView) findViewById(R.id.tv_contato);
 		subnome = (TextView) findViewById(R.id.tv_subnome);
+		classificacao = (TextView) findViewById(R.id.tv_anexo);
 	}
 
 	@Override

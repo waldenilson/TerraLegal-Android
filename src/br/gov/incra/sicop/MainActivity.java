@@ -114,27 +114,37 @@ public class MainActivity extends Activity implements IActivity, OnItemClickList
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		// TODO Auto-generated method stub
-		if(arg2 == 0)
-		{
-			
+		
+		switch (arg2) {
+		case 0:
+		{	
 			Intent data = new Intent(this, ConsultaProcessoActivity.class);
 			startActivityForResult(data,1);				
-			
-//			SQLiteDatabase sql = ((GlobalController) getApplication()).getDatabase();
-//			if ( sql.isOpen() )
-//			{
-//				Toast.makeText(this, "abriu arquivo", Toast.LENGTH_LONG).show();
-//				Cursor resultSet = sql.rawQuery("SELECT * FROM processo WHERE nome LIKE '%SNY%' ", null);
-//				resultSet.moveToFirst();
-//				Toast.makeText(this, "Total registros: "+resultSet.getCount(), Toast.LENGTH_LONG).show();
-//				
-//				while(resultSet.isAfterLast() == false){
-//					Toast.makeText(this, "Nome: "+resultSet.getString(2), Toast.LENGTH_LONG).show();
-//					resultSet.moveToNext();
-//				}
-//			}
-//			else
-//				Toast.makeText(this, "nao abriu arquivo", Toast.LENGTH_LONG).show();
+			break;
 		}
+		case 1:
+		{
+			Toast.makeText(this, "Nenhum dado sobre peça técnica.", Toast.LENGTH_LONG).show();
+			break;
+		}
+		case 2:
+		{
+			Toast.makeText(this, "Nenhum dado sobre livro fundiário.", Toast.LENGTH_LONG).show();
+			break;
+		}
+		case 3:
+		{
+			Toast.makeText(this, "Nenhum dado sobre legislação.", Toast.LENGTH_LONG).show();
+			break;
+		}
+		case 4:
+		{
+			Toast.makeText(this, "Baseado em Software Livre", Toast.LENGTH_LONG).show();
+			break;
+		}
+		default:
+			break;
+		}
+		
 	}
 }

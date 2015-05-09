@@ -26,7 +26,7 @@ import android.widget.ListView;
 public class ConsultaProcessoActivity extends Activity implements IActivity{
 
     private ProgressDialog pd;
-    private EditText nome;
+    private EditText nome,cadastro_pessoa;
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +39,7 @@ public class ConsultaProcessoActivity extends Activity implements IActivity{
 
 	private void init(){
 		nome = (EditText) findViewById(R.id.et_nome);
+		cadastro_pessoa = (EditText) findViewById(R.id.et_cadastro_pessoa);
 	}
 
 	@Override
@@ -57,9 +58,10 @@ public class ConsultaProcessoActivity extends Activity implements IActivity{
 	public void bt_pesquisar(View v)
 	{
 
-		if( nome.getText().toString().length() > 2 )
+		if( nome.getText().toString().length() > 2 || cadastro_pessoa.getText().toString().length() > 2 )
 		{
 			( (GlobalController) getApplication()).setNomePesquisa( nome.getText().toString() );
+			( (GlobalController) getApplication()).setCadastroPesquisa( cadastro_pessoa.getText().toString() );
 			Intent data = new Intent(this, ProcessosActivity.class);
 			startActivityForResult(data,1);							
 		}
