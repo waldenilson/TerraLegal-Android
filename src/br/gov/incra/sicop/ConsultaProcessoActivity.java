@@ -13,6 +13,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.v4.view.ViewPager.LayoutParams;
 import android.view.Menu;
@@ -62,8 +63,9 @@ public class ConsultaProcessoActivity extends Activity implements IActivity{
 		{
 			( (GlobalController) getApplication()).setNomePesquisa( nome.getText().toString() );
 			( (GlobalController) getApplication()).setCadastroPesquisa( cadastro_pessoa.getText().toString() );
+			
 			Intent data = new Intent(this, ProcessosActivity.class);
-			startActivityForResult(data,1);							
+			startActivityForResult(data,1);										
 		}
 		else
 			Toast.makeText(this, "Informe pelo menos 3 caracteres.", Toast.LENGTH_LONG).show();

@@ -6,6 +6,7 @@ import java.util.List;
 import br.gov.incra.sicop.abstractactivity.IActivity;
 import br.gov.incra.sicop.controller.GlobalController;
 import br.gov.incra.sicop.list.ListViewImageAdapter;
+import android.opengl.Visibility;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -60,7 +61,7 @@ public class ProcessoActivity extends Activity implements IActivity {
 				subnome.setText( "Interessado: "+resultSet.getString(4) );
 			
 			if(!resultSet.getString(7).equals("ANEXO"))
-				classificacao.setEnabled(false);
+				classificacao.setVisibility(View.INVISIBLE);
 			
 		}
 		else

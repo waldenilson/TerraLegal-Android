@@ -29,8 +29,8 @@ public class ProcessosActivity extends Activity implements IActivity, OnItemClic
 
     private ProgressDialog pd;
     private ListView lv_processos;
-	private List<Integer> ids,cor = new ArrayList<Integer>();
-	private List<String> nomes,localizacao,gleba = new ArrayList<String>();
+	private List<Integer> ids,cor;
+	private List<String> nomes,localizacao,gleba;
 	
 	
 	@Override
@@ -40,43 +40,66 @@ public class ProcessosActivity extends Activity implements IActivity, OnItemClic
 		getWindow().setLayout(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
 		init();
 		
-		SQLiteDatabase sql = ((GlobalController) getApplication()).getDatabase();
-		if ( sql.isOpen() )
+		try
 		{
-			
-			
-			//String s = "SELECT * FROM processo WHERE nome LIKE '%"+ ((GlobalController)getApplication()).getNomePesquisa() +"%' ";
-			String s = "SELECT * FROM processo WHERE nome LIKE '%?%' AND cadastro_pessoa LIKE '%?%'";
-			
-			Cursor resultSet = sql.rawQuery(s, new String[] {((GlobalController)getApplication()).getNomePesquisa(), ((GlobalController)getApplication()).getCadastroPesquisa()});
-			resultSet.moveToFirst();
-			
-			while(resultSet.isAfterLast() == false)
+
+			SQLiteDatabase sql = ((GlobalController) getApplication()).getDatabase();
+			if ( sql.isOpen() )
 			{
-				ids.add( resultSet.getInt( 0 ) );
-				nomes.add( resultSet.getString(3) );
-				localizacao.add( resultSet.getString(5) );
-				gleba.add( resultSet.getString(9)+" / "+resultSet.getString(8) );
-				if(resultSet.getString(6).equals("PROCESSO RURAL"))
-					cor.add( Color.rgb(110, 255, 110) );
-				else if(resultSet.getString(6).equals("CLAUSULAS RESOLUTIVAS"))
-					cor.add( Color.rgb(153,255,255) );
-				else
-					cor.add( Color.rgb(255,178,102) );
-				resultSet.moveToNext();
+
+				
+					String s = "SELECT * FROM processo WHERE nome LIKE '%"+ ((GlobalController)getApplication()).getNomePesquisa() +"%' AND cadastro_pessoa LIKE '%"+((GlobalController)getApplication()).getCadastroPesquisa()+"%' ";
+					
+					Cursor resultSet = sql.rawQuery(s, null);
+					if(resultSet.getCount()>0)
+					{
+
+						ids = new ArrayList<Integer>();
+						nomes = new ArrayList<String>();
+						localizacao = new ArrayList<String>();
+						gleba = new ArrayList<String>();
+						cor = new ArrayList<Integer>();
+
+						resultSet.moveToFirst();
+						while(resultSet.isAfterLast() == false )
+						{
+							ids.add(resultSet.getInt(0));
+							nomes.add( resultSet.getString(3) );
+							gleba.add( resultSet.getString(9)+" / "+resultSet.getString(8) );
+							localizacao.add( resultSet.getString(5) );
+							if(resultSet.getString(6).equals("PROCESSO RURAL"))
+								cor.add( Color.rgb(102, 255, 102) );
+							else if(resultSet.getString(6).equals("CLAUSULAS RESOLUTIVAS"))
+								cor.add( Color.rgb(102, 255, 255) );
+							else
+								cor.add( Color.rgb(255, 153, 51) );	
+							resultSet.moveToNext();
+						}
+						ListViewDetailColorAdapter lvdc = new ListViewDetailColorAdapter(this, nomes, localizacao, gleba, cor);
+						lv_processos.setAdapter(lvdc);
+						lv_processos.setTextFilterEnabled(true);
+						lv_processos.setOnItemClickListener(this);	
+					}
+					else
+					{
+						Toast.makeText(this, "Não encontrou dados na consulta.", Toast.LENGTH_LONG).show();
+						finish();
+					}
+					
 			}
+			else
+			{
+				Toast.makeText(this, "Não acessou a base de dados", Toast.LENGTH_LONG).show();
+				finish();
+			}
+
 		}
-		else
+		catch(Exception e)
 		{
-			Toast.makeText(this, "Não acessou a base de dados", Toast.LENGTH_LONG).show();
+			Toast.makeText(this, "Erro: "+e.getStackTrace()[0], Toast.LENGTH_LONG).show();
+			Toast.makeText(this, "Erro: "+e.getStackTrace()[1], Toast.LENGTH_LONG).show();
 			finish();
 		}
-
-//		ListViewConfigAdapter lv = new ListViewConfigAdapter(this, nomes);
-		ListViewDetailColorAdapter lvdc = new ListViewDetailColorAdapter(this, nomes, localizacao, gleba, cor);
-		lv_processos.setAdapter(lvdc);
-		lv_processos.setTextFilterEnabled(true);
-		lv_processos.setOnItemClickListener(this);	
 
 	}
 
