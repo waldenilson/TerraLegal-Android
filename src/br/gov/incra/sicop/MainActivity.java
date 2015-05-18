@@ -140,7 +140,8 @@ public class MainActivity extends Activity implements IActivity, OnItemClickList
 		}
 		case 4:
 		{
-			Toast.makeText(this, "Baseado em Software Livre", Toast.LENGTH_LONG).show();
+			Intent data = new Intent(this, InformacoesActivity.class);
+			startActivityForResult(data,1);				
 			break;
 		}
 		default:
