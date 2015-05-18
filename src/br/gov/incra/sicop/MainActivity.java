@@ -102,11 +102,6 @@ public class MainActivity extends Activity implements IActivity, OnItemClickList
 		setResult(1, getIntent());
 		super.finish();
 	}
-
-	public void login(View v){
-		Intent data = new Intent(this, LoginActivity.class);
-		startActivityForResult(data,1);				
-	}
 	
 	public void bt_sair(View v){
 		finish();
@@ -125,17 +120,17 @@ public class MainActivity extends Activity implements IActivity, OnItemClickList
 		}
 		case 1:
 		{
-			Toast.makeText(this, "Nenhum dado sobre peça técnica.", Toast.LENGTH_LONG).show();
+			Toast.makeText(this, "Nenhum dado sobre peça técnica nesta versão.", Toast.LENGTH_LONG).show();
 			break;
 		}
 		case 2:
 		{
-			Toast.makeText(this, "Nenhum dado sobre livro fundiário.", Toast.LENGTH_LONG).show();
+			Toast.makeText(this, "Nenhum dado sobre livro fundiário nesta versão.", Toast.LENGTH_LONG).show();
 			break;
 		}
 		case 3:
 		{
-			Toast.makeText(this, "Nenhum dado sobre legislação.", Toast.LENGTH_LONG).show();
+			Toast.makeText(this, "Nenhum dado sobre legislação nesta versão.", Toast.LENGTH_LONG).show();
 			break;
 		}
 		case 4:

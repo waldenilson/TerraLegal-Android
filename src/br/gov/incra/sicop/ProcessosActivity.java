@@ -89,7 +89,7 @@ public class ProcessosActivity extends Activity implements IActivity, OnItemClic
 			}
 			else
 			{
-				Toast.makeText(this, "Não acessou a base de dados", Toast.LENGTH_LONG).show();
+				Toast.makeText(this, "Não acessou a base de dados.", Toast.LENGTH_LONG).show();
 				finish();
 			}
 
