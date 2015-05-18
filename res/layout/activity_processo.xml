@@ -98,6 +98,14 @@
                     android:text="Tipo:"
                     android:layout_marginTop="10dp"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
+                                
+                <TextView
+                    android:id="@+id/tv_numero"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Número:"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
                 
                 <TextView
                     android:id="@+id/tv_anexo"
@@ -108,19 +116,19 @@
                     android:textAppearance="?android:attr/textAppearanceSmall" />
                 
                 <TextView
-                    android:id="@+id/tv_numero"
-                    android:layout_marginTop="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Número:"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-                
-                <TextView
                     android:id="@+id/tv_nome"
                     android:layout_marginTop="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nome:"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+               
+               <TextView
+                    android:id="@+id/tv_cadastro_pessoa"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CPF/CNPJ:"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
                 
                 <TextView
@@ -130,15 +138,7 @@
                     android:layout_height="wrap_content"
                     android:text="SubNome:"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
-                
-                <TextView
-                    android:id="@+id/tv_cadastro_pessoa"
-                    android:layout_marginTop="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="CPF/CNPJ:"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-                
+                                
                 <TextView
                     android:id="@+id/tv_localizacao"
                     android:layout_marginTop="20dp"
@@ -188,12 +188,27 @@
                     android:textAppearance="?android:attr/textAppearanceMedium" />
                 
                 <TextView
+                    android:id="@+id/textview1"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sem dados nesta versão"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                
+                <TextView
                     android:id="@+id/tv_pendencias"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Pendência(s)"
                     android:layout_marginTop="20dp"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:id="@+id/textview2"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sem dados nesta versão"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
                 
                 <TextView
                     android:id="@+id/tv_movimentacoes"
@@ -202,6 +217,13 @@
                     android:text="Movimentação(ões)"
                     android:layout_marginTop="20dp"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:id="@+id/textview3"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sem dados nesta versão"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
                 
                 <TextView
                     android:id="@+id/tv_anexos"
@@ -210,6 +232,13 @@
                     android:text="Anexo(s)"
                     android:layout_marginTop="20dp"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:id="@+id/textview4"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sem dados nesta versão"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
                 
             </LinearLayout>
         </ScrollView>
