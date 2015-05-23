@@ -196,6 +196,22 @@
                     android:textAppearance="?android:attr/textAppearanceSmall" />
                 
                 <TextView
+                    android:id="@+id/tv_titulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Título"
+                    android:layout_marginTop="20dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:id="@+id/tv_titulo_dados"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                
+                <TextView
                     android:id="@+id/tv_pendencias"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

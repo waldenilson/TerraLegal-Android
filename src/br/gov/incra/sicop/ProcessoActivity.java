@@ -28,7 +28,7 @@ public class ProcessoActivity extends Activity implements IActivity {
     private ProgressDialog pd;
     
     private TextView tipo, nome, localizacao, numero, cadastro_pessoa, subnome,endereco,contato,gleba,municipio, classificacao;
-    private TextView pecas,pecas_dados, pendencias, pendencias_dados, anexos, anexos_dados, movimentacoes, movimentacoes_dados;
+    private TextView pecas,pecas_dados, pendencias, pendencias_dados, anexos, anexos_dados, movimentacoes, movimentacoes_dados, titulo, titulo_dados;
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,67 +40,86 @@ public class ProcessoActivity extends Activity implements IActivity {
 		SQLiteDatabase sql = ((GlobalController) getApplication()).getDatabase();
 		if ( sql.isOpen() )
 		{
-			Cursor resultSet = sql.rawQuery("SELECT * FROM processo WHERE id = "+ ((GlobalController)getApplication()).getIdPesquisa() +"", null);
-			resultSet.moveToFirst();
-
-			tipo.setText( tipo.getText().toString()+" "+resultSet.getString(6) );
-			numero.setText( numero.getText().toString()+" "+resultSet.getString(1) );
-			nome.setText( nome.getText().toString()+" "+resultSet.getString(3) );
-			cadastro_pessoa.setText( cadastro_pessoa.getText().toString()+" "+resultSet.getString(2) );
-			localizacao.setText( localizacao.getText().toString()+" "+resultSet.getString(5) );
-			
-			gleba.setText( gleba.getText().toString()+" "+resultSet.getString(8) );
-			endereco.setText( endereco.getText().toString()+" "+resultSet.getString(10) );
-			contato.setText( contato.getText().toString()+" "+resultSet.getString(11) );
-			municipio.setText( municipio.getText().toString()+" "+resultSet.getString(9) );
-			if(resultSet.getString(6).equals("PROCESSO RURAL"))
-				subnome.setText( "Cônjuge: "+resultSet.getString(4) );
-			else if(resultSet.getString(6).equals("REGULARIZACAO URBANA"))
-				subnome.setText( "Povoado: "+resultSet.getString(4) );
-			else
-				subnome.setText( "Interessado: "+resultSet.getString(4) );
-			
-			if(!resultSet.getString(7).equals("Anexo"))
-				classificacao.setVisibility(View.INVISIBLE);
-			
-			//DADOS AUXILIARES DO ANDAMENTO DO PROCESSO
-			//PEÇAS
-			if(resultSet.getString(15).equals(""))
-				pecas_dados.setText("Nenhum dado de peça técnica.");
-			else
+			try
 			{
-				String[] objpecas = resultSet.getString(15).split("FIMREG");
-				for( int x = 0; x < objpecas.length;x++ )
-					pecas_dados.setText( pecas_dados.getText().toString() + objpecas[x]+"\n" );
+				Cursor resultSet = sql.rawQuery("SELECT * FROM processo WHERE id = "+ ((GlobalController)getApplication()).getIdPesquisa() +"", null);
+				resultSet.moveToFirst();
+	
+				tipo.setText( tipo.getText().toString()+" "+resultSet.getString(6) );
+				numero.setText( numero.getText().toString()+" "+resultSet.getString(1) );
+				nome.setText( nome.getText().toString()+" "+resultSet.getString(3) );
+				cadastro_pessoa.setText( cadastro_pessoa.getText().toString()+" "+resultSet.getString(2) );
+				localizacao.setText( localizacao.getText().toString()+" "+resultSet.getString(5) );
+				
+				gleba.setText( gleba.getText().toString()+" "+resultSet.getString(8) );
+				endereco.setText( endereco.getText().toString()+" "+resultSet.getString(10) );
+				contato.setText( contato.getText().toString()+" "+resultSet.getString(11) );
+				municipio.setText( municipio.getText().toString()+" "+resultSet.getString(9) );
+				if(resultSet.getString(6).equals("PROCESSO RURAL"))
+					subnome.setText( "Cônjuge: "+resultSet.getString(4) );
+				else if(resultSet.getString(6).equals("REGULARIZACAO URBANA"))
+					subnome.setText( "Povoado: "+resultSet.getString(4) );
+				else
+					subnome.setText( "Interessado: "+resultSet.getString(4) );
+				
+				
+				if(!resultSet.getString(7).split(".")[0].equals("Anexo"))
+					classificacao.setVisibility(View.INVISIBLE);
+				else
+				{
+					classificacao.setText( classificacao.getText().toString() + ".\nPrincipal: "+resultSet.getString(7).split(".")[1] );
+				}
+				
+				//DADOS AUXILIARES DO ANDAMENTO DO PROCESSO
+				//PEÇAS
+				if(resultSet.getString(15).equals(""))
+					pecas_dados.setText("Nenhum dado de peça técnica.");
+				else
+				{
+					String[] objpecas = resultSet.getString(15).split("FIMREG");
+					for( int x = 0; x < objpecas.length;x++ )
+						pecas_dados.setText( pecas_dados.getText().toString() + objpecas[x]+"\n" );
+				}
+				//ANEXOS
+				if(resultSet.getString(14).equals(""))
+					pecas_dados.setText("Nenhum anexo.");
+				else
+				{
+					String[] objanexos = resultSet.getString(14).split("FIMREG");
+					for( int x = 0; x < objanexos.length;x++ )
+						anexos_dados.setText( anexos_dados.getText().toString() + objanexos[x]+"\n" );
+				}
+				//MOVIMENTACOES
+				if(resultSet.getString(13).equals(""))
+					pecas_dados.setText("Nenhuma movimentação.");
+				else
+				{
+					String[] objmovs = resultSet.getString(13).split("FIMREG");
+					for( int x = 0; x < objmovs.length;x++ )
+						movimentacoes_dados.setText( movimentacoes_dados.getText().toString() + objmovs[x]+"\n" );
+				}
+				//PENDENCIAS
+				if(resultSet.getString(12).equals(""))
+					pendencias_dados.setText("Nenhuma pendência.");
+				else
+				{
+					String[] objpen = resultSet.getString(12).split("FIMREG");
+					for( int x = 0; x < objpen.length;x++ )
+						pendencias_dados.setText( pendencias_dados.getText().toString() + objpen[x]+"\n" );
+				}
+				//TITULO
+				if(resultSet.getString(16).equals(""))
+					titulo_dados.setText("Não titulado.");
+				else
+				{
+					String[] objtit = resultSet.getString(16).split("|");
+					titulo_dados.setText( titulo_dados.getText().toString() + objtit.toString() );
+				}
 			}
-			//ANEXOS
-			if(resultSet.getString(14).equals(""))
-				pecas_dados.setText("Nenhum anexo.");
-			else
-			{
-				String[] objanexos = resultSet.getString(14).split("FIMREG");
-				for( int x = 0; x < objanexos.length;x++ )
-					anexos_dados.setText( anexos_dados.getText().toString() + objanexos[x]+"\n" );
+			catch(Exception e){
+				Toast.makeText(this, "erro: "+e.getMessage(), Toast.LENGTH_LONG).show();
+				finish();
 			}
-			//MOVIMENTACOES
-			if(resultSet.getString(13).equals(""))
-				pecas_dados.setText("Nenhuma movimentação.");
-			else
-			{
-				String[] objmovs = resultSet.getString(13).split("FIMREG");
-				for( int x = 0; x < objmovs.length;x++ )
-					movimentacoes_dados.setText( movimentacoes_dados.getText().toString() + objmovs[x]+"\n" );
-			}
-			//PENDENCIAS
-			if(resultSet.getString(12).equals(""))
-				pecas_dados.setText("Nenhuma pendência.");
-			else
-			{
-				String[] objpen = resultSet.getString(12).split("FIMREG");
-				for( int x = 0; x < objpen.length;x++ )
-					pendencias_dados.setText( pendencias_dados.getText().toString() + objpen[x]+"\n" );
-			}
-			
 		}
 		else
 		{
@@ -131,6 +150,9 @@ public class ProcessoActivity extends Activity implements IActivity {
 		movimentacoes_dados = (TextView) findViewById(R.id.tv_movimentacoes_dados);
 		anexos = (TextView) findViewById(R.id.tv_anexos);
 		anexos_dados = (TextView) findViewById(R.id.tv_anexos_dados);
+		titulo = (TextView) findViewById(R.id.tv_titulo);
+		titulo_dados = (TextView) findViewById(R.id.tv_titulo_dados);
+
 	}
 
 	@Override
