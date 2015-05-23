@@ -28,7 +28,7 @@ public class ProcessoActivity extends Activity implements IActivity {
     private ProgressDialog pd;
     
     private TextView tipo, nome, localizacao, numero, cadastro_pessoa, subnome,endereco,contato,gleba,municipio, classificacao;
-    
+    private TextView pecas,pecas_dados, pendencias, pendencias_dados, anexos, anexos_dados, movimentacoes, movimentacoes_dados;
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +60,46 @@ public class ProcessoActivity extends Activity implements IActivity {
 			else
 				subnome.setText( "Interessado: "+resultSet.getString(4) );
 			
-			if(!resultSet.getString(7).equals("ANEXO"))
+			if(!resultSet.getString(7).equals("Anexo"))
 				classificacao.setVisibility(View.INVISIBLE);
+			
+			//DADOS AUXILIARES DO ANDAMENTO DO PROCESSO
+			//PEÇAS
+			if(resultSet.getString(15).equals(""))
+				pecas_dados.setText("Nenhum dado de peça técnica.");
+			else
+			{
+				String[] objpecas = resultSet.getString(15).split("FIMREG");
+				for( int x = 0; x < objpecas.length;x++ )
+					pecas_dados.setText( pecas_dados.getText().toString() + objpecas[x]+"\n" );
+			}
+			//ANEXOS
+			if(resultSet.getString(14).equals(""))
+				pecas_dados.setText("Nenhum anexo.");
+			else
+			{
+				String[] objanexos = resultSet.getString(14).split("FIMREG");
+				for( int x = 0; x < objanexos.length;x++ )
+					anexos_dados.setText( anexos_dados.getText().toString() + objanexos[x]+"\n" );
+			}
+			//MOVIMENTACOES
+			if(resultSet.getString(13).equals(""))
+				pecas_dados.setText("Nenhuma movimentação.");
+			else
+			{
+				String[] objmovs = resultSet.getString(13).split("FIMREG");
+				for( int x = 0; x < objmovs.length;x++ )
+					movimentacoes_dados.setText( movimentacoes_dados.getText().toString() + objmovs[x]+"\n" );
+			}
+			//PENDENCIAS
+			if(resultSet.getString(12).equals(""))
+				pecas_dados.setText("Nenhuma pendência.");
+			else
+			{
+				String[] objpen = resultSet.getString(12).split("FIMREG");
+				for( int x = 0; x < objpen.length;x++ )
+					pendencias_dados.setText( pendencias_dados.getText().toString() + objpen[x]+"\n" );
+			}
 			
 		}
 		else
@@ -85,6 +123,14 @@ public class ProcessoActivity extends Activity implements IActivity {
 		contato = (TextView) findViewById(R.id.tv_contato);
 		subnome = (TextView) findViewById(R.id.tv_subnome);
 		classificacao = (TextView) findViewById(R.id.tv_anexo);
+		pecas = (TextView) findViewById(R.id.tv_pecas);
+		pecas_dados = (TextView) findViewById(R.id.tv_pecas_dados);
+		pendencias = (TextView) findViewById(R.id.tv_pendencias);
+		pendencias_dados = (TextView) findViewById(R.id.tv_pendencias_dados);
+		movimentacoes = (TextView) findViewById(R.id.tv_movimentacoes);
+		movimentacoes_dados = (TextView) findViewById(R.id.tv_movimentacoes_dados);
+		anexos = (TextView) findViewById(R.id.tv_anexos);
+		anexos_dados = (TextView) findViewById(R.id.tv_anexos_dados);
 	}
 
 	@Override

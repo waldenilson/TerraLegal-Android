@@ -188,11 +188,11 @@
                     android:textAppearance="?android:attr/textAppearanceMedium" />
                 
                 <TextView
-                    android:id="@+id/textview1"
+                    android:id="@+id/tv_pecas_dados"
                     android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Sem dados nesta versão"
+                    android:text=""
                     android:textAppearance="?android:attr/textAppearanceSmall" />
                 
                 <TextView
@@ -203,11 +203,11 @@
                     android:layout_marginTop="20dp"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
                 <TextView
-                    android:id="@+id/textview2"
+                    android:id="@+id/tv_pendencias_dados"
                     android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Sem dados nesta versão"
+                    android:text=""
                     android:textAppearance="?android:attr/textAppearanceSmall" />
                 
                 <TextView
@@ -218,11 +218,11 @@
                     android:layout_marginTop="20dp"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
                 <TextView
-                    android:id="@+id/textview3"
+                    android:id="@+id/tv_movimentacoes_dados"
                     android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Sem dados nesta versão"
+                    android:text=""
                     android:textAppearance="?android:attr/textAppearanceSmall" />
                 
                 <TextView
@@ -233,12 +233,12 @@
                     android:layout_marginTop="20dp"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
                 <TextView
-                    android:id="@+id/textview4"
+                    android:id="@+id/tv_anexos_dados"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Sem dados nesta versão"
+                    android:text=""
                     android:textAppearance="?android:attr/textAppearanceSmall" />
                 
             </LinearLayout>
