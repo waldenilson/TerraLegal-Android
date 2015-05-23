@@ -89,15 +89,14 @@ public class ProcessosActivity extends Activity implements IActivity, OnItemClic
 			}
 			else
 			{
-				Toast.makeText(this, "Não acessou a base de dados.", Toast.LENGTH_LONG).show();
+				Toast.makeText(this, "Arquivo dos dados incorreto. Informe ao desenvolvedor.", Toast.LENGTH_LONG).show();
 				finish();
 			}
 
 		}
 		catch(Exception e)
 		{
-			Toast.makeText(this, "Erro: "+e.getStackTrace()[0], Toast.LENGTH_LONG).show();
-			Toast.makeText(this, "Erro: "+e.getStackTrace()[1], Toast.LENGTH_LONG).show();
+			Toast.makeText(this, "Não acessou / encontrou o arquivo dos dados. Informe ao desenvolvedor.", Toast.LENGTH_LONG).show();
 			finish();
 		}
 
