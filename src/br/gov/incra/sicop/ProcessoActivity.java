@@ -63,17 +63,17 @@ public class ProcessoActivity extends Activity implements IActivity {
 					subnome.setText( "Interessado: "+resultSet.getString(4) );
 				
 				
-				if(!resultSet.getString(7).split(".")[0].equals("Anexo"))
+				if(resultSet.getString(7).equals("Pai."))
 					classificacao.setVisibility(View.INVISIBLE);
 				else
 				{
-					classificacao.setText( classificacao.getText().toString() + ".\nPrincipal: "+resultSet.getString(7).split(".")[1] );
+					classificacao.setText( classificacao.getText().toString() + ".\nPrincipal: "+resultSet.getString(7) );
 				}
 				
 				//DADOS AUXILIARES DO ANDAMENTO DO PROCESSO
 				//PEÇAS
 				if(resultSet.getString(15).equals(""))
-					pecas_dados.setText("Nenhum dado de peça técnica.");
+					pecas_dados.setText("Nenhuma peça técnica.");
 				else
 				{
 					String[] objpecas = resultSet.getString(15).split("FIMREG");
@@ -82,7 +82,7 @@ public class ProcessoActivity extends Activity implements IActivity {
 				}
 				//ANEXOS
 				if(resultSet.getString(14).equals(""))
-					pecas_dados.setText("Nenhum anexo.");
+					anexos_dados.setText("Nenhum anexo.");
 				else
 				{
 					String[] objanexos = resultSet.getString(14).split("FIMREG");
@@ -91,7 +91,7 @@ public class ProcessoActivity extends Activity implements IActivity {
 				}
 				//MOVIMENTACOES
 				if(resultSet.getString(13).equals(""))
-					pecas_dados.setText("Nenhuma movimentação.");
+					movimentacoes_dados.setText("Nenhuma movimentação.");
 				else
 				{
 					String[] objmovs = resultSet.getString(13).split("FIMREG");
@@ -113,7 +113,7 @@ public class ProcessoActivity extends Activity implements IActivity {
 				else
 				{
 					String[] objtit = resultSet.getString(16).split("|");
-					titulo_dados.setText( titulo_dados.getText().toString() + objtit.toString() );
+					titulo_dados.setText( titulo_dados.getText().toString() + resultSet.getString(16) );
 				}
 			}
 			catch(Exception e){
