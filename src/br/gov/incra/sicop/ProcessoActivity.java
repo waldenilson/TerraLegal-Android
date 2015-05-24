@@ -82,11 +82,11 @@ public class ProcessoActivity extends Activity implements IActivity {
 						String[] atribpecas = objpecas[x].split("\\|");						
 						if(x>0)
 							pecas_dados.setText( pecas_dados.getText().toString() + "\n---\n" );
-						pecas_dados.setText( pecas_dados.getText().toString() + "Área: "+ atribpecas[0] +"\n" );
+						pecas_dados.setText( pecas_dados.getText().toString() + "Área: "+ atribpecas[0] +" ha\n" );
 						pecas_dados.setText( pecas_dados.getText().toString() + "Municipio: "+ atribpecas[1] +"\n" );
 						pecas_dados.setText( pecas_dados.getText().toString() + "Gleba: "+ atribpecas[2] +"\n" );
 						pecas_dados.setText( pecas_dados.getText().toString() + "Contrato: "+ atribpecas[3] +"\n" );
-						pecas_dados.setText( pecas_dados.getText().toString() + "Obs.: "+ atribpecas[3] +"\n" );						
+						pecas_dados.setText( pecas_dados.getText().toString() + "Obs.: "+ atribpecas[4] );						
 					}
 				}
 				//ANEXOS
@@ -104,7 +104,7 @@ public class ProcessoActivity extends Activity implements IActivity {
 						anexos_dados.setText( anexos_dados.getText().toString() + "Requerente: "+ atribanexos[2] +"\n" );
 						anexos_dados.setText( anexos_dados.getText().toString() + "Tipo: "+ atribanexos[1] +"\n" );
 						anexos_dados.setText( anexos_dados.getText().toString() + "Usuário: "+ atribanexos[3] +"\n" );
-						anexos_dados.setText( anexos_dados.getText().toString() + "Data: "+ atribanexos[4] +"\n" );						
+						anexos_dados.setText( anexos_dados.getText().toString() + "Data: "+ atribanexos[4] );						
 					}
 				}
 				//MOVIMENTACOES
@@ -121,7 +121,7 @@ public class ProcessoActivity extends Activity implements IActivity {
 						movimentacoes_dados.setText( movimentacoes_dados.getText().toString() + "Caixa Destino: "+ atribmovs[1] +"\n" );
 						movimentacoes_dados.setText( movimentacoes_dados.getText().toString() + "Caixa Origem: "+ atribmovs[0] +"\n" );
 						movimentacoes_dados.setText( movimentacoes_dados.getText().toString() + "Usuário: "+ atribmovs[2] +"\n" );
-						movimentacoes_dados.setText( movimentacoes_dados.getText().toString() + "Data: "+ atribmovs[3] +"\n" );						
+						movimentacoes_dados.setText( movimentacoes_dados.getText().toString() + "Data: "+ atribmovs[3] );						
 					}
 				}
 				//PENDENCIAS
@@ -140,7 +140,7 @@ public class ProcessoActivity extends Activity implements IActivity {
 						pendencias_dados.setText( pendencias_dados.getText().toString() + "Parecer: "+ atribpen[1] +"\n" );
 						pendencias_dados.setText( pendencias_dados.getText().toString() + "Status: "+ atribpen[3] +"\n" );
 						pendencias_dados.setText( pendencias_dados.getText().toString() + "Usuário: "+ atribpen[4] +"\n" );
-						pendencias_dados.setText( pendencias_dados.getText().toString() + "Data: "+ atribpen[5] +"\n" );						
+						pendencias_dados.setText( pendencias_dados.getText().toString() + "Data: "+ atribpen[5] );						
 					}
 				}
 				//TITULO
@@ -151,7 +151,7 @@ public class ProcessoActivity extends Activity implements IActivity {
 					String[] objtit = resultSet.getString(16).split("\\|");
 					titulo_dados.setText( titulo_dados.getText().toString() + "Número: " + objtit[0] +"\n" );
 					titulo_dados.setText( titulo_dados.getText().toString() + "Tipo: " + objtit[1] +"\n" );
-					titulo_dados.setText( titulo_dados.getText().toString() + "Status: " + objtit[2] +"\n" );					
+					titulo_dados.setText( titulo_dados.getText().toString() + "Status: " + objtit[2] );					
 				}
 			}
 			catch(Exception e){
