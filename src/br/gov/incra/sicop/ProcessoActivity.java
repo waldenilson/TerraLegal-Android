@@ -78,7 +78,16 @@ public class ProcessoActivity extends Activity implements IActivity {
 				{
 					String[] objpecas = resultSet.getString(15).split("FIMREG");
 					for( int x = 0; x < objpecas.length;x++ )
-						pecas_dados.setText( pecas_dados.getText().toString() + objpecas[x]+"\n" );
+					{
+						String[] atribpecas = objpecas[x].split("\\|");						
+						if(x>0)
+							pecas_dados.setText( pecas_dados.getText().toString() + "\n---\n" );
+						pecas_dados.setText( pecas_dados.getText().toString() + "Área: "+ atribpecas[0] +"\n" );
+						pecas_dados.setText( pecas_dados.getText().toString() + "Municipio: "+ atribpecas[1] +"\n" );
+						pecas_dados.setText( pecas_dados.getText().toString() + "Gleba: "+ atribpecas[2] +"\n" );
+						pecas_dados.setText( pecas_dados.getText().toString() + "Contrato: "+ atribpecas[3] +"\n" );
+						pecas_dados.setText( pecas_dados.getText().toString() + "Obs.: "+ atribpecas[3] +"\n" );						
+					}
 				}
 				//ANEXOS
 				if(resultSet.getString(14).equals(""))
@@ -87,7 +96,16 @@ public class ProcessoActivity extends Activity implements IActivity {
 				{
 					String[] objanexos = resultSet.getString(14).split("FIMREG");
 					for( int x = 0; x < objanexos.length;x++ )
-						anexos_dados.setText( anexos_dados.getText().toString() + objanexos[x]+"\n" );
+					{
+						String[] atribanexos = objanexos[x].split("\\|");						
+						if(x>0)
+							anexos_dados.setText( anexos_dados.getText().toString() + "\n---\n" );
+						anexos_dados.setText( anexos_dados.getText().toString() + "Número: "+ atribanexos[0] +"\n" );
+						anexos_dados.setText( anexos_dados.getText().toString() + "Requerente: "+ atribanexos[2] +"\n" );
+						anexos_dados.setText( anexos_dados.getText().toString() + "Tipo: "+ atribanexos[1] +"\n" );
+						anexos_dados.setText( anexos_dados.getText().toString() + "Usuário: "+ atribanexos[3] +"\n" );
+						anexos_dados.setText( anexos_dados.getText().toString() + "Data: "+ atribanexos[4] +"\n" );						
+					}
 				}
 				//MOVIMENTACOES
 				if(resultSet.getString(13).equals(""))
@@ -96,7 +114,15 @@ public class ProcessoActivity extends Activity implements IActivity {
 				{
 					String[] objmovs = resultSet.getString(13).split("FIMREG");
 					for( int x = 0; x < objmovs.length;x++ )
-						movimentacoes_dados.setText( movimentacoes_dados.getText().toString() + objmovs[x]+"\n" );
+					{
+						String[] atribmovs = objmovs[x].split("\\|");						
+						if(x>0)
+							movimentacoes_dados.setText( movimentacoes_dados.getText().toString() + "\n---\n" );
+						movimentacoes_dados.setText( movimentacoes_dados.getText().toString() + "Caixa Destino: "+ atribmovs[1] +"\n" );
+						movimentacoes_dados.setText( movimentacoes_dados.getText().toString() + "Caixa Origem: "+ atribmovs[0] +"\n" );
+						movimentacoes_dados.setText( movimentacoes_dados.getText().toString() + "Usuário: "+ atribmovs[2] +"\n" );
+						movimentacoes_dados.setText( movimentacoes_dados.getText().toString() + "Data: "+ atribmovs[3] +"\n" );						
+					}
 				}
 				//PENDENCIAS
 				if(resultSet.getString(12).equals(""))
@@ -105,25 +131,37 @@ public class ProcessoActivity extends Activity implements IActivity {
 				{
 					String[] objpen = resultSet.getString(12).split("FIMREG");
 					for( int x = 0; x < objpen.length;x++ )
-						pendencias_dados.setText( pendencias_dados.getText().toString() + objpen[x]+"\n" );
+					{
+						String[] atribpen = objpen[x].split("\\|");						
+						if(x>0)
+							pendencias_dados.setText( pendencias_dados.getText().toString() + "\n---\n" );
+						pendencias_dados.setText( pendencias_dados.getText().toString() + "Tipo: "+ atribpen[2] +"\n" );
+						pendencias_dados.setText( pendencias_dados.getText().toString() + "Descrição: "+ atribpen[0] +"\n" );
+						pendencias_dados.setText( pendencias_dados.getText().toString() + "Parecer: "+ atribpen[1] +"\n" );
+						pendencias_dados.setText( pendencias_dados.getText().toString() + "Status: "+ atribpen[3] +"\n" );
+						pendencias_dados.setText( pendencias_dados.getText().toString() + "Usuário: "+ atribpen[4] +"\n" );
+						pendencias_dados.setText( pendencias_dados.getText().toString() + "Data: "+ atribpen[5] +"\n" );						
+					}
 				}
 				//TITULO
 				if(resultSet.getString(16).equals(""))
 					titulo_dados.setText("Não titulado.");
 				else
 				{
-					String[] objtit = resultSet.getString(16).split("|");
-					titulo_dados.setText( titulo_dados.getText().toString() + resultSet.getString(16) );
+					String[] objtit = resultSet.getString(16).split("\\|");
+					titulo_dados.setText( titulo_dados.getText().toString() + "Número: " + objtit[0] +"\n" );
+					titulo_dados.setText( titulo_dados.getText().toString() + "Tipo: " + objtit[1] +"\n" );
+					titulo_dados.setText( titulo_dados.getText().toString() + "Status: " + objtit[2] +"\n" );					
 				}
 			}
 			catch(Exception e){
-				Toast.makeText(this, "erro: "+e.getMessage(), Toast.LENGTH_LONG).show();
+				Toast.makeText(this, "erro: "+e.getMessage()+". Informe ao Desenvolvedor.", Toast.LENGTH_LONG).show();
 				finish();
 			}
 		}
 		else
 		{
-			Toast.makeText(this, "Não acessou a base de dados", Toast.LENGTH_LONG).show();
+			Toast.makeText(this, "Não carregou / acessou o arquivo dos dados", Toast.LENGTH_LONG).show();
 			finish();
 		}
 
