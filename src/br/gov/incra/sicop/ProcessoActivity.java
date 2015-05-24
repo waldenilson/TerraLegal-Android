@@ -47,7 +47,12 @@ public class ProcessoActivity extends Activity implements IActivity {
 	
 				tipo.setText( tipo.getText().toString()+" "+resultSet.getString(6) );
 				numero.setText( numero.getText().toString()+" "+resultSet.getString(1) );
-				nome.setText( nome.getText().toString()+" "+resultSet.getString(3) );
+				if(resultSet.getString(6).equals("PROCESSO RURAL"))
+					nome.setText( "Requerente: "+resultSet.getString(3) );
+				else if(resultSet.getString(6).equals("REGULARIZACAO URBANA"))
+					nome.setText( "Povoado: "+resultSet.getString(3) );
+				else
+					nome.setText( "Requerente: "+resultSet.getString(3) );
 				cadastro_pessoa.setText( cadastro_pessoa.getText().toString()+" "+resultSet.getString(2) );
 				localizacao.setText( localizacao.getText().toString()+" "+resultSet.getString(5) );
 				
@@ -58,7 +63,7 @@ public class ProcessoActivity extends Activity implements IActivity {
 				if(resultSet.getString(6).equals("PROCESSO RURAL"))
 					subnome.setText( "Cônjuge: "+resultSet.getString(4) );
 				else if(resultSet.getString(6).equals("REGULARIZACAO URBANA"))
-					subnome.setText( "Povoado: "+resultSet.getString(4) );
+					subnome.setText( "Proj. Assentamento: "+resultSet.getString(4) );
 				else
 					subnome.setText( "Interessado: "+resultSet.getString(4) );
 				
@@ -67,7 +72,9 @@ public class ProcessoActivity extends Activity implements IActivity {
 					classificacao.setVisibility(View.INVISIBLE);
 				else
 				{
-					classificacao.setText( classificacao.getText().toString() + ".\nPrincipal: "+resultSet.getString(7) );
+					classificacao.setText( classificacao.getText().toString() + "\nPrincipal: "+
+							resultSet.getString(7).split(".")[1]+
+							"\nRequerente: "+resultSet.getString(7).split(".")[2] );
 				}
 				
 				//DADOS AUXILIARES DO ANDAMENTO DO PROCESSO
@@ -83,7 +90,7 @@ public class ProcessoActivity extends Activity implements IActivity {
 						if(x>0)
 							pecas_dados.setText( pecas_dados.getText().toString() + "\n---\n" );
 						pecas_dados.setText( pecas_dados.getText().toString() + "Área: "+ atribpecas[0] +" ha\n" );
-						pecas_dados.setText( pecas_dados.getText().toString() + "Municipio: "+ atribpecas[1] +"\n" );
+						pecas_dados.setText( pecas_dados.getText().toString() + "Município: "+ atribpecas[1] +"\n" );
 						pecas_dados.setText( pecas_dados.getText().toString() + "Gleba: "+ atribpecas[2] +"\n" );
 						pecas_dados.setText( pecas_dados.getText().toString() + "Contrato: "+ atribpecas[3] +"\n" );
 						pecas_dados.setText( pecas_dados.getText().toString() + "Obs.: "+ atribpecas[4] );						
