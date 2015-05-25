@@ -90,11 +90,11 @@ public final class R {
         public static final int tv_requerimento=0x7f070013;
         public static final int tv_subnome=0x7f070024;
         public static final int tv_tipo=0x7f07001f;
-        public static final int tv_tit_cadastro_pessoa=0x7f070037;
+        public static final int tv_tit_cadastro_pessoa=0x7f070038;
         public static final int tv_tit_localizacao=0x7f07003b;
-        public static final int tv_tit_nome=0x7f070036;
+        public static final int tv_tit_nome=0x7f070037;
         public static final int tv_tit_numero=0x7f070035;
-        public static final int tv_tit_processo=0x7f070038;
+        public static final int tv_tit_processo=0x7f070036;
         public static final int tv_tit_status=0x7f07003a;
         public static final int tv_tit_tipo=0x7f070039;
         public static final int tv_titulo=0x7f07002c;

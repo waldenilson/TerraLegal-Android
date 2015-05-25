@@ -144,8 +144,8 @@ public class TitulosActivity extends Activity implements IActivity, OnItemClickL
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		// TODO Auto-generated method stub
 		((GlobalController)getApplication()).setIdPesquisa( ids.get(arg2) );
-//		Intent data = new Intent(this, ProcessoActivity.class);
-//		startActivityForResult(data,1);						
+		Intent data = new Intent(this, TituloActivity.class);
+		startActivityForResult(data,1);						
 	}
 
 }
