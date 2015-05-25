@@ -65,7 +65,7 @@ public class PecasActivity extends Activity implements IActivity, OnItemClickLis
 						{
 							ids.add(resultSet.getInt(0));
 							nomes.add( resultSet.getString(3) );
-							gleba.add( resultSet.getString(9)+" / "+resultSet.getString(8) );
+							gleba.add( resultSet.getString(8)+" / "+resultSet.getString(9) );
 							localizacao.add( resultSet.getString(5) );
 							resultSet.moveToNext();
 						}
@@ -144,8 +144,8 @@ public class PecasActivity extends Activity implements IActivity, OnItemClickLis
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		// TODO Auto-generated method stub
 		((GlobalController)getApplication()).setIdPesquisa( ids.get(arg2) );
-		Intent data = new Intent(this, ProcessoActivity.class);
-		startActivityForResult(data,1);						
+//		Intent data = new Intent(this, ProcessoActivity.class);
+//		startActivityForResult(data,1);						
 	}
 
 }

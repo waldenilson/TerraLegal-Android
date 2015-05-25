@@ -31,7 +31,7 @@ public class TitulosActivity extends Activity implements IActivity, OnItemClickL
     private ProgressDialog pd;
     private ListView lv_titulos;
 	private List<Integer> ids;
-	private List<String> nomes,localizacao,gleba;
+	private List<String> nomes,localizacao,tit;
 	
 	
 	@Override
@@ -58,18 +58,18 @@ public class TitulosActivity extends Activity implements IActivity, OnItemClickL
 						ids = new ArrayList<Integer>();
 						nomes = new ArrayList<String>();
 						localizacao = new ArrayList<String>();
-						gleba = new ArrayList<String>();
+						tit = new ArrayList<String>();
 
 						resultSet.moveToFirst();
 						while(resultSet.isAfterLast() == false )
 						{
 							ids.add(resultSet.getInt(0));
-							nomes.add( resultSet.getString(3) );
-							gleba.add( resultSet.getString(9)+" / "+resultSet.getString(8) );
-							localizacao.add( resultSet.getString(5) );
+							nomes.add( resultSet.getString(2) );
+							tit.add( resultSet.getString(4)+" - "+resultSet.getString(5)+" - "+resultSet.getString(6) );
+							localizacao.add( resultSet.getString(7) );
 							resultSet.moveToNext();
 						}
-						ListViewDetailAdapter lvd = new ListViewDetailAdapter(this, nomes, localizacao, gleba);
+						ListViewDetailAdapter lvd = new ListViewDetailAdapter(this, nomes, localizacao, tit);
 						lv_titulos.setAdapter(lvd);
 						lv_titulos.setTextFilterEnabled(true);
 						lv_titulos.setOnItemClickListener(this);	
@@ -144,8 +144,8 @@ public class TitulosActivity extends Activity implements IActivity, OnItemClickL
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		// TODO Auto-generated method stub
 		((GlobalController)getApplication()).setIdPesquisa( ids.get(arg2) );
-		Intent data = new Intent(this, ProcessoActivity.class);
-		startActivityForResult(data,1);						
+//		Intent data = new Intent(this, ProcessoActivity.class);
+//		startActivityForResult(data,1);						
 	}
 
 }
