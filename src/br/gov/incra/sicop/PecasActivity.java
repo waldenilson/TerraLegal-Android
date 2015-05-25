@@ -65,7 +65,13 @@ public class PecasActivity extends Activity implements IActivity, OnItemClickLis
 						{
 							ids.add(resultSet.getInt(0));
 							nomes.add( resultSet.getString(3) );
-							gleba.add( resultSet.getString(8)+" / "+resultSet.getString(9) );
+							
+							String gleba_mun = "";
+							gleba_mun += resultSet.getString(8);
+							if(resultSet.getString(9).equals(""))
+								gleba_mun += " / "+resultSet.getString(9);
+							gleba.add(gleba_mun);
+							
 							localizacao.add( resultSet.getString(5) );
 							resultSet.moveToNext();
 						}
