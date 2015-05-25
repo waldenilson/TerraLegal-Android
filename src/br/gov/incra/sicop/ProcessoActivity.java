@@ -48,12 +48,45 @@ public class ProcessoActivity extends Activity implements IActivity {
 				tipo.setText( tipo.getText().toString()+" "+resultSet.getString(6) );
 				numero.setText( numero.getText().toString()+" "+resultSet.getString(1) );
 				if(resultSet.getString(6).equals("PROCESSO RURAL"))
+				{
 					nome.setText( "Requerente: "+resultSet.getString(3) );
+					
+					String cpf = resultSet.getString(2);
+					String cpf_mask = "";
+					for(int x=0;x<cpf.length();x++){
+						if(x == 0 || x == 1  || x == 2 || x == cpf.length()-1 || x == cpf.length()-2)
+							cpf_mask += "*";
+						else
+							cpf_mask += ""+cpf.charAt(x);
+					}
+					cadastro_pessoa.setText( "CPF: "+cpf_mask );
+				}
 				else if(resultSet.getString(6).equals("REGULARIZACAO URBANA"))
+				{
 					nome.setText( "Povoado: "+resultSet.getString(3) );
+					String cnpj = resultSet.getString(2);
+					String cnpj_mask = "";
+					for(int x=0;x<cnpj.length();x++){
+						if(x == 0 || x == 1 || x == cnpj.length()-2 || x == cnpj.length()-1)
+							cnpj_mask += "*";
+						else
+							cnpj_mask += ""+cnpj.charAt(x);
+					}
+					cadastro_pessoa.setText( "CNPJ: "+cnpj_mask );
+				}
 				else
+				{
 					nome.setText( "Requerente: "+resultSet.getString(3) );
-				cadastro_pessoa.setText( cadastro_pessoa.getText().toString()+" "+resultSet.getString(2) );
+					String cpf = resultSet.getString(2);
+					String cpf_mask = "";
+					for(int x=0;x<cpf.length();x++){
+						if(x == 0 || x == 1  || x == 2 || x == cpf.length()-2 || x == cpf.length()-1)
+							cpf_mask += "*";
+						else
+							cpf_mask += ""+cpf.charAt(x);
+					}
+					cadastro_pessoa.setText( "CPF: "+cpf_mask );
+				}
 				localizacao.setText( localizacao.getText().toString()+" "+resultSet.getString(5) );
 				
 				gleba.setText( gleba.getText().toString()+" "+resultSet.getString(8) );
@@ -72,9 +105,8 @@ public class ProcessoActivity extends Activity implements IActivity {
 					classificacao.setVisibility(View.INVISIBLE);
 				else
 				{
-					classificacao.setText( classificacao.getText().toString() + "\nPrincipal: "+
-							resultSet.getString(7).split(".")[1]+
-							"\nRequerente: "+resultSet.getString(7).split(".")[2] );
+					classificacao.setText( classificacao.getText().toString() + "\n\nPrincipal: "+
+							resultSet.getString(7).split("\\.")[1]+" - "+resultSet.getString(7).split("\\.")[2] );
 				}
 				
 				//DADOS AUXILIARES DO ANDAMENTO DO PROCESSO
