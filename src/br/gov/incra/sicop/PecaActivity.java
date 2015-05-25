@@ -53,15 +53,21 @@ public class PecaActivity extends Activity implements IActivity {
 					else
 						cpf_mask += ""+cpf.charAt(x);
 				}
+				
+//				satubinha, pio XII, vitorino freire, olho dagua das cunhas, esperantinopolis
+				
 				cadastro_pessoa.setText( cadastro_pessoa.getText().toString()+" "+cpf_mask );				
 				localizacao.setText( localizacao.getText().toString()+" "+resultSet.getString(5) );
 				gleba.setText( gleba.getText().toString()+" "+resultSet.getString(8) );
 				municipio.setText( municipio.getText().toString()+" "+resultSet.getString(9) );
 
-				contrato.setText( localizacao.getText().toString()+" "+resultSet.getString(1) );
-				entrega.setText( gleba.getText().toString()+" "+resultSet.getString(2) );
-				area.setText( area.getText().toString()+" "+resultSet.getString(6) );
-				perimetro.setText( perimetro.getText().toString()+" "+resultSet.getString(7) );
+				contrato.setText( contrato.getText().toString()+" "+resultSet.getString(1) );
+				entrega.setText( entrega.getText().toString()+" "+resultSet.getString(2) );
+				area.setText( area.getText().toString()+" "+resultSet.getString(6)+" ha" );
+				if(resultSet.getString(7).equals("None"))
+					perimetro.setText( perimetro.getText().toString()+" " );
+				else
+					perimetro.setText( perimetro.getText().toString()+" "+resultSet.getString(7) );
 				observacao.setText( observacao.getText().toString()+" "+resultSet.getString(10) );
 				
 			}

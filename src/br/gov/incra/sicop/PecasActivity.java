@@ -68,7 +68,7 @@ public class PecasActivity extends Activity implements IActivity, OnItemClickLis
 							
 							String gleba_mun = "";
 							gleba_mun += resultSet.getString(8);
-							if(resultSet.getString(9).equals(""))
+							if(!resultSet.getString(9).equals(""))
 								gleba_mun += " / "+resultSet.getString(9);
 							gleba.add(gleba_mun);
 							
