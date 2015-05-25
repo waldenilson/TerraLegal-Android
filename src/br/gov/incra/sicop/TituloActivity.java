@@ -32,7 +32,7 @@ public class TituloActivity extends Activity implements IActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_peca);
+		setContentView(R.layout.activity_titulo);
 		getWindow().setLayout(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
 		init();
 
@@ -41,7 +41,7 @@ public class TituloActivity extends Activity implements IActivity {
 		{
 			try
 			{
-				Cursor resultSet = sql.rawQuery("SELECT * FROM pecatecnica WHERE id = "+ ((GlobalController)getApplication()).getIdPesquisa() +"", null);
+				Cursor resultSet = sql.rawQuery("SELECT * FROM livrofundiario WHERE id = "+ ((GlobalController)getApplication()).getIdPesquisa() +"", null);
 				resultSet.moveToFirst();
 	
 				nome.setText( nome.getText().toString()+" "+resultSet.getString(2) );
