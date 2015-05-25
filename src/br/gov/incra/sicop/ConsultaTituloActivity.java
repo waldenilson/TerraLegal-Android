@@ -64,7 +64,7 @@ public class ConsultaTituloActivity extends Activity implements IActivity{
 			( (GlobalController) getApplication()).setNomePesquisa( nome.getText().toString() );
 			( (GlobalController) getApplication()).setCadastroPesquisa( cadastro_pessoa.getText().toString() );
 			
-			Intent data = new Intent(this, ProcessosActivity.class);
+			Intent data = new Intent(this, TitulosActivity.class);
 			startActivityForResult(data,1);										
 		}
 		else
