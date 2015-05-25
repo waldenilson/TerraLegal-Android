@@ -7,6 +7,7 @@ import br.gov.incra.sicop.abstractactivity.IActivity;
 import br.gov.incra.sicop.controller.GlobalController;
 import br.gov.incra.sicop.list.ListViewColorAdapter;
 import br.gov.incra.sicop.list.ListViewConfigAdapter;
+import br.gov.incra.sicop.list.ListViewDetailAdapter;
 import br.gov.incra.sicop.list.ListViewDetailColorAdapter;
 import br.gov.incra.sicop.list.ListViewImageAdapter;
 import android.os.Bundle;
@@ -29,7 +30,7 @@ public class PecasActivity extends Activity implements IActivity, OnItemClickLis
 
     private ProgressDialog pd;
     private ListView lv_pecas;
-	private List<Integer> ids,cor;
+	private List<Integer> ids;
 	private List<String> nomes,localizacao,gleba;
 	
 	
@@ -58,7 +59,6 @@ public class PecasActivity extends Activity implements IActivity, OnItemClickLis
 						nomes = new ArrayList<String>();
 						localizacao = new ArrayList<String>();
 						gleba = new ArrayList<String>();
-						cor = new ArrayList<Integer>();
 
 						resultSet.moveToFirst();
 						while(resultSet.isAfterLast() == false )
@@ -67,16 +67,10 @@ public class PecasActivity extends Activity implements IActivity, OnItemClickLis
 							nomes.add( resultSet.getString(3) );
 							gleba.add( resultSet.getString(9)+" / "+resultSet.getString(8) );
 							localizacao.add( resultSet.getString(5) );
-							if(resultSet.getString(6).equals("PROCESSO RURAL"))
-								cor.add( Color.rgb(102, 255, 102) );
-							else if(resultSet.getString(6).equals("CLAUSULAS RESOLUTIVAS"))
-								cor.add( Color.rgb(102, 255, 255) );
-							else
-								cor.add( Color.rgb(255, 153, 51) );	
 							resultSet.moveToNext();
 						}
-						ListViewDetailColorAdapter lvdc = new ListViewDetailColorAdapter(this, nomes, localizacao, gleba, cor);
-						lv_pecas.setAdapter(lvdc);
+						ListViewDetailAdapter lvd = new ListViewDetailAdapter(this, nomes, localizacao, gleba);
+						lv_pecas.setAdapter(lvd);
 						lv_pecas.setTextFilterEnabled(true);
 						lv_pecas.setOnItemClickListener(this);	
 					}
