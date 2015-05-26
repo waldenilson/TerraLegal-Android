@@ -132,7 +132,8 @@ public class MainActivity extends Activity implements IActivity, OnItemClickList
 		}
 		case 3:
 		{
-			Toast.makeText(this, "Nenhum dado sobre a organização nesta versão.", Toast.LENGTH_LONG).show();
+			Intent data = new Intent(this, OrganizacaoActivity.class);
+			startActivityForResult(data,1);				
 			break;
 		}
 		case 4:

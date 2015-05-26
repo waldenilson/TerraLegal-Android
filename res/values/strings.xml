@@ -25,8 +25,10 @@
     <string name="menu_desc_info">Informações sobre o app.</string>
     
     <string name="menu_leis">Organização</string>
-    <string name="menu_desc_leis">Organização da Divisão Terra Legal Maranhão.</string>
+    <string name="menu_desc_leis">Coordenação Extraordinaria Estadual de Regularização Fundiária na Amazônia Legal no Maranhão - CERFAL/MA.</string>
     
+    <string name="lb_organizacao_endereco">Avenida Santos Dumont, 18 Anil (Prédio do INCRA)\n\nCEP: 65046&#8211;660 São Luis, Maranhão\n\nFone(s): (98) 3244 1500, 3245 9394 ramal 232</string>
+ 
     <string name="lb_codigo_fonte">Código Fonte</string>
     <string name="lb_novidades">Novidades</string>
     <string name="lb_creditos">Créditos</string>

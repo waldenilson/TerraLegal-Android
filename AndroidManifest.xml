@@ -96,6 +96,12 @@
             android:label="@string/app_name" >
         </activity>
         
+        <activity
+            android:name="br.gov.incra.sicop.OrganizacaoActivity"
+            android:configChanges="orientation"
+            android:label="@string/app_name" >
+        </activity>
+        
     </application>
 
 </manifest>
