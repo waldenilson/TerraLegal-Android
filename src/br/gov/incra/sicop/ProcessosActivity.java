@@ -64,7 +64,11 @@ public class ProcessosActivity extends Activity implements IActivity, OnItemClic
 						while(resultSet.isAfterLast() == false )
 						{
 							ids.add(resultSet.getInt(0));
-							nomes.add( resultSet.getString(3) );
+							if(resultSet.getString(7).contains("Anexo."))
+								nomes.add( resultSet.getString(3)+" (Anexo)" );
+							else
+								nomes.add( resultSet.getString(3) );
+							
 							gleba.add( resultSet.getString(9)+" / "+resultSet.getString(8) );
 							localizacao.add( resultSet.getString(5) );
 							if(resultSet.getString(6).equals("PROCESSO RURAL"))
