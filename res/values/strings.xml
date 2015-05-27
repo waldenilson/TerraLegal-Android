@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">SICOP - v0.30</string>
+    <string name="app_name">SICOP - v1.0</string>
     <string name="app_desc">Consulta informativa dos processos instruídos no escritório TerraLegal / MA.</string>
     <string name="app_description">App para consulta processual em campo.</string>
-    <string name="app_version">v0.30</string>
+    <string name="app_version">v1.0</string>
     
     <string name="menu_settings">Settings</string>
     <string name="ale_retorno_vazio">Não existe informações</string>

@@ -105,8 +105,25 @@ public class ProcessoActivity extends Activity implements IActivity {
 					classificacao.setVisibility(View.INVISIBLE);
 				else
 				{
-					classificacao.setText( classificacao.getText().toString() + "\n\nPrincipal: "+
-							resultSet.getString(7).split("\\.")[1]+" - "+resultSet.getString(7).split("\\.")[2] );
+					String[] principal = resultSet.getString(7).split("\\.");
+					classificacao.setText( classificacao.getText().toString() + "\n\nPrincipal: ");
+					for(int x=0;x<principal.length;x++)
+					{
+						switch (x) {
+						case 1:
+						{
+							classificacao.setText( classificacao.getText().toString() + resultSet.getString(7).split("\\.")[1] );							
+							break;
+						}
+						case 2:
+						{
+							classificacao.setText( classificacao.getText().toString() + " - " + resultSet.getString(7).split("\\.")[2] );							
+							break;
+						}
+						default:
+							break;
+						}
+					}
 				}
 				
 				//DADOS AUXILIARES DO ANDAMENTO DO PROCESSO
