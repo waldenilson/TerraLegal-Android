@@ -27,7 +27,7 @@ public class PecaActivity extends Activity implements IActivity {
 
     private ProgressDialog pd;
     
-    private TextView contrato, nome, localizacao, entrega, cadastro_pessoa, area, perimetro, observacao,gleba,municipio;
+    private TextView contrato, nome, localizacao, entrega, cadastro_pessoa, area, perimetro, observacao,gleba,municipio, tem_processo;
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +54,13 @@ public class PecaActivity extends Activity implements IActivity {
 						cpf_mask += ""+cpf.charAt(x);
 				}
 				
-//				satubinha, pio XII, vitorino freire, olho dagua das cunhas, esperantinopolis
-				
 				cadastro_pessoa.setText( cadastro_pessoa.getText().toString()+" "+cpf_mask );				
+				
+				if(resultSet.getString(11).equals("TRUE"))
+					tem_processo.setText( tem_processo.getText().toString()+" Sim" );				
+				else
+					tem_processo.setText( tem_processo.getText().toString()+" Não" );				
+
 				localizacao.setText( localizacao.getText().toString()+" "+resultSet.getString(5) );
 				gleba.setText( gleba.getText().toString()+" "+resultSet.getString(8) );
 				municipio.setText( municipio.getText().toString()+" "+resultSet.getString(9) );
@@ -96,6 +100,7 @@ public class PecaActivity extends Activity implements IActivity {
 		observacao = (TextView) findViewById(R.id.tv_peca_observacao);
 		area = (TextView) findViewById(R.id.tv_peca_area);
 		perimetro = (TextView) findViewById(R.id.tv_peca_perimetro);
+		tem_processo = (TextView) findViewById(R.id.tv_peca_tem_processo);
 	}
 
 	@Override

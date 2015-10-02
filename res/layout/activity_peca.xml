@@ -108,6 +108,14 @@
                     android:textAppearance="?android:attr/textAppearanceSmall" />
                 
                 <TextView
+                    android:id="@+id/tv_peca_tem_processo"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Processo ?"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                
+                <TextView
                     android:id="@+id/tv_peca_contrato"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

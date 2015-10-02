@@ -22,10 +22,10 @@
     <string name="menu_desc_livro">Títulos emitidos da Regularização Fundiária.</string>
     
     <string name="menu_info">Informações</string>
-    <string name="menu_desc_info">Informações sobre o app.</string>
+    <string name="menu_desc_info">Equipe de desenvolvimento.</string>
     
     <string name="menu_leis">Organização</string>
-    <string name="menu_desc_leis">Coordenação Extraordinaria Estadual de Regularização Fundiária na Amazônia Legal no Maranhão - CERFAL/MA.</string>
+    <string name="menu_desc_leis">Regularização Fundiária na Amazônia Legal no Maranhão.</string>
     
     <string name="lb_organizacao_endereco">Avenida Santos Dumont, 18 Anil (Prédio do INCRA)\n\nCEP: 65046&#8211;660 São Luis, Maranhão\n\nFone(s): (98) 3244 1500, 3245 9394 ramal 232</string>
  
