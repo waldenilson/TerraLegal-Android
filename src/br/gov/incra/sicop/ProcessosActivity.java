@@ -5,10 +5,7 @@ import java.util.List;
 
 import br.gov.incra.sicop.abstractactivity.IActivity;
 import br.gov.incra.sicop.controller.GlobalController;
-import br.gov.incra.sicop.list.ListViewColorAdapter;
-import br.gov.incra.sicop.list.ListViewConfigAdapter;
 import br.gov.incra.sicop.list.ListViewDetailColorAdapter;
-import br.gov.incra.sicop.list.ListViewImageAdapter;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -16,7 +13,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.support.v4.view.ViewPager.LayoutParams;
 import android.view.Menu;
 import android.view.View;
@@ -47,8 +43,10 @@ public class ProcessosActivity extends Activity implements IActivity, OnItemClic
 			if ( sql.isOpen() )
 			{
 
-				
-					String s = "SELECT * FROM processo WHERE nome LIKE '%"+ ((GlobalController)getApplication()).getNomePesquisa() +"%' AND cadastro_pessoa LIKE '%"+((GlobalController)getApplication()).getCadastroPesquisa()+"%' ";
+					String requerente = ((GlobalController)getApplication()).getNomePesquisa();
+					String cpf_requerente = ((GlobalController)getApplication()).getCadastroPesquisa();
+					
+					String s = "SELECT * FROM processo WHERE ( nome LIKE '%"+ requerente +"%' OR subnome LIKE '%"+ requerente +"%' ) AND cadastro_pessoa LIKE '%"+ cpf_requerente +"%' ORDER BY nome ASC ";
 					
 					Cursor resultSet = sql.rawQuery(s, null);
 					if(resultSet.getCount()>0)
