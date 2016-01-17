@@ -107,7 +107,7 @@
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Joelsi Frank Costa"
+                    android:text="Jowberth Franklin"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
                 
                 <TextView
@@ -122,7 +122,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:text="Eduardo Aguilar"
+                    android:text="Joelsi Frank Costa"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
                 
                 <TextView
@@ -137,7 +137,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:text="Francisco Dilson"
+                    android:text="Ary Kurz"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
                 
                 <TextView
@@ -167,7 +167,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:text="Quinto Fernando Antunes Ramos"
+                    android:text="Francisco Dilson"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
                 
                 <TextView
